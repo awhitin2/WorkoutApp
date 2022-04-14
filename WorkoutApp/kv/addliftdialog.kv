@@ -1,0 +1,50 @@
+#:kivy 2.0.0
+
+<AddLiftDialog>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: '300dp'
+    # height: self.minimum_height
+
+    box: box
+
+    ScrollView:
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            id: box
+            spacing: "12dp"
+            
+    
+<AddLiftDialogRow>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: self.minimum_height
+    
+    check: check
+    input: input
+
+    ItemConfirm:
+        text: root.lift
+        on_release: root.set_icon(check, input)
+        divider: None
+    
+        LeftCheckbox:
+            id: check
+            active: False
+            # on_active: root.set_icon(check, input)
+
+    CreateWorkoutSetsInput:
+        id: input
+        hint_text: "# sets"
+        size_hint_x: 0
+        disabled: True
+
+
+<LeftCheckbox@ILeftBodyTouch+MDCheckbox>:
+     
+<ItemConfirm@OneLineAvatarIconListItem>:
+
+    
+<CreateWorkoutSetsInput@MDTextField>:

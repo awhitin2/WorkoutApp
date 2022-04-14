@@ -1,0 +1,203 @@
+#:kivy 2.0.0
+
+<SessionScreen>:
+
+    toolbar: toolbar
+    record_layout: record_layout
+
+    MDBoxLayout:
+        orientation: "vertical"
+        # id: top_layout
+        
+        MDToolbar:
+            id: toolbar
+            left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.workout_sm, screen_name='selection_screen', direction='right')]]
+            right_action_items: [["plus", lambda x: root._add_lift(), 'Add new lift'], ["check", lambda x: root.save, 'Save']]
+            specific_text_color: [.13,.13,.13,1]
+            halign: 'center'
+            elevation: 10
+        
+        ScrollView:
+            size_hint_y: None
+            height: root.height - toolbar.height
+            
+            MDBoxLayout:
+                id: record_layout
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 5
+                padding: 5
+                    
+
+<LiftCard>:
+    adaptive_height: True
+    size_hint_y: None
+    height: 125 * (root.sets+1) + root.label_height #This can be improved. Self.minimum hieght and then move the height record rows
+    orientation: 'vertical'
+    label_height: 75
+
+    # input_layout: input_layout
+    # record_layout: record_layout
+
+    # canvas:
+    #     Color:
+    #         rgba: 1, 0, 0, .5
+    #     Rectangle:
+    #         pos: self.pos
+    #         size: self.size
+
+    Label:
+        text: root.lift
+        size_hint_y: None
+        height: root.label_height
+        # pos_hint: {'top': 1}
+
+        # canvas:
+        #     Color:
+        #         rgba: 0, 1, 0, 1
+        #     Rectangle:
+        #         pos: self.pos
+        #         size: self.size
+
+    MDSeparator:
+        
+    MDStackLayout:
+        adaptive_height: True
+        canvas:
+            Color:
+                rgba: 0, 1, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            height: 100
+            text: '1'
+
+
+        # Label:
+        #     height: 100
+
+        # Label:
+        #     height: 100
+    # MDStackLayout:
+    #     orientation: 'tb-rl'
+    #     adaptive_height: True
+
+    #     MDBoxLayout:
+    #         id: input_layout
+    #         orientation: 'vertical'
+    #         adaptive_height: True
+    #         size_hint_x: None
+    #         width: root.width/4
+            
+    #         spacing: 5
+
+    #         MDIconButton:
+    #             icon: 'check'
+    #             on_release: root.log_lift()
+    #             size_hint_y: None
+    #             # height: 125
+    #             # set a height here
+
+    #         InputRow:
+
+    #         InputRow:
+
+
+
+
+#     StackLayout:
+#         orientation: 'tb-rl'
+#         cols: 2
+
+#         canvas:
+#             Color:
+#                 rgba: 0, 0, 1, 1
+#             Rectangle:
+#                 pos: self.pos
+#                 size: self.size
+        
+#         BoxLayout:
+#             id: input_layout
+#             orientation: 'vertical'
+#             size_hint_x: None
+#             width: root.width/4
+#             spacing: 5
+
+#             canvas:
+#                 Color:
+#                     rgba: 1, 0, 0, 1
+#                 Rectangle:
+#                     pos: self.pos
+#                     size: self.size
+
+#             MDIconButton:
+#                 icon: 'check'
+#                 on_release: root.log_lift()
+#                 size_hint_y: None
+#                 heigh: 125
+#                 # set a height here
+
+#         ScrollView:
+#             do_scroll_x: True
+#             scroll_x:1
+        
+#             GridLayout:
+#                 rows: 1
+#                 orientation: 'lr-tb'
+#                 size_hint_x: None
+#                 width: self.minimum_width
+#                 id: record_layout
+#                 pos_hint: {'top': 1}
+
+# <InputLayout>
+
+
+<InputRow>:
+    orientation: 'horizontal'
+    size_hint_x: .5
+    size_hint_y: None
+    height: 125
+
+    rep_field: rep_field
+    weight_field: weight_field
+
+    MDTextField:
+        hint_text: '#'
+        id: rep_field
+
+    MDTextField:
+        hint_text: 'lbs'
+        id: weight_field
+
+<RecordColumn>:
+    size_hint_x: None
+    width: 200 #eventually make this 1/4 the width of the screen
+    size_hint_y: None
+    height: self.minimum_height
+    pos_hint: {'top': 1}
+    
+    grid: grid
+
+    
+    Label:
+        text: root.date
+        color: [.74,.74,.74,1]
+        size_hint_y: None
+        height: 125
+
+    
+    GridLayout:
+        id: grid
+        cols: 1
+
+        size_hint_y: None
+        height: self.minimum_height
+
+
+<RecordLabel>:
+    color: [.74,.74,.74,1]
+    size_hint_y: None
+    height: 125

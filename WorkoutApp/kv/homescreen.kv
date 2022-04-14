@@ -1,0 +1,54 @@
+#:kivy 2.0.0
+
+<HomeScreen>:
+
+    box: box
+
+    MDToolbar:
+        title: "Select Workout"
+        id: toolbar
+        specific_text_color: [.13,.13,.13,1]
+        right_action_items: [["plus", lambda x: root.show_new_workout_dialog(), 'Create new']]
+        halign: 'center'
+        pos_hint: {'top':1.0}
+        elevation: 10
+
+    MDBoxLayout:
+        id: box
+        orientation: "vertical"
+        size_hint: 1, None
+        height: self.minimum_height
+        y: root.height - toolbar.height - self.height
+        spacing: 5
+        padding: 5
+
+        # canvas:
+        #     Color:
+        #         rgb: [.95, .57, .26]
+        #     Rectangle:
+        #         pos: self.pos
+        #         size: self.size
+
+        MDLabel:
+            text: 'Scheduled:'
+            adaptive_height: True
+            halign: 'center'
+            # theme_text_color: "Custom"
+            # text_color: [.95, .57, .26] # Orange
+        
+        
+        MDLabel:
+            text: 'Scheduled:'
+            adaptive_height: True
+            halign: 'center'
+
+        MDLabel:
+            text: 'Current Streak:'
+            adaptive_height: True
+            halign: 'center'
+
+        MDLabel:
+            text: 'This Week:'
+            adaptive_height: True
+            halign: 'center'
+

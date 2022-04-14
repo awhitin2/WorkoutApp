@@ -1,0 +1,76 @@
+#:kivy 2.0.0
+#:include kv/selectionscreen.kv
+#:include kv/sessionscreen.kv
+
+
+
+#include kv/datascreen.kv
+#:include kv/schedulescreen.kv
+
+
+
+#include kv/graphscreen.kv
+
+
+MDScreen:
+
+    MDBottomNavigation: 
+    
+        MDBottomNavigationItem:
+            name: 'select'
+            text: 'Workout'
+            icon: 'run'
+            
+            ScreenManager:
+                id: workout_sm
+
+                SelectionScreen:
+                    name: "selection_screen"
+                    id: selection_screen
+
+                # SessionScreen:
+                #     name: "session_screen"
+                #     id: session_screen
+                    
+
+        MDBottomNavigationItem:
+            name: 'data'
+            text: 'Data'
+            icon: 'chart-line'
+
+            ScreenManager:
+                id: data_sm
+
+                # DataScreen:
+                #     name: "data_screen"
+                #     id: data_screen
+
+                # GraphScreen:
+                #     name: 'graph_screen'
+                #     id: graph_screen
+
+
+        MDBottomNavigationItem:
+            name: 'schedule'
+            text: 'Schedule'
+            icon: 'chart-line'
+
+            
+            ScheduleScreen:
+                name: 'schedule_screen'
+                id: schedule_screen
+
+            
+        # MDBottomNavigationItem:
+        #     name: 'home'
+        #     text: 'Home'
+        #     icon: 'home'
+            
+            
+        #     HomeScreen:
+        #         name: "home_screen"
+        #         id: home_screen
+
+                # SessionScreen:
+                #     name: "session_screen"
+                #     id: session_screen
