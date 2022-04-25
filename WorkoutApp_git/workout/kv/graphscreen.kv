@@ -1,0 +1,63 @@
+#:kivy 2.0.0
+
+<GraphScreen>:
+    canvas:
+        Color:
+            rgb: 0.13, 0.13, 0.13
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    figdisplay: figdisplay
+    lift_stack: lift_stack
+    period_stack: period_stack
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDToolbar:
+            title: 'Progress Chart'
+            id: toolbar
+            specific_text_color: [.13,.13,.13,1]
+            left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.data_sm,screen_name='data_screen', direction='right')]]
+            halign: 'center'
+            elevation: 10
+
+        FigDisplay:
+            id: figdisplay
+            size_hint_y: .7
+
+        StackLayout:
+            id: lift_stack
+    
+        Separator:
+
+        StackLayout:
+            id: period_stack
+
+<StackLayout>:
+    size_hint_y: None
+    height: self.minimum_height
+    spacing: 5
+    padding: 5
+
+<FigDisplay>:
+    orientation: 'vertical'
+    spacing: 5
+    padding: 5
+
+<GraphChip>:
+    icon: ''
+    selected_chip_color: 'orange'
+
+
+<Separator@Widget>:
+    id: separator
+    size_hint_y: None
+    height: 2
+    canvas:
+        Color:
+            rgb: .8, .8, .8
+        Rectangle:
+            pos: 0, separator.center_y
+            size: separator.width, 2

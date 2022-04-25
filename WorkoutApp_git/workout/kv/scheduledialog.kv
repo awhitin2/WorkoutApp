@@ -1,0 +1,38 @@
+#:kivy 2.0.0
+
+<ScheduleDialog>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: '420dp'
+    box: box
+
+    ScrollView:
+        MDBoxLayout:
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            id: box
+            spacing: "12dp"
+            
+    
+<ScheduleDialogRow>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: self.minimum_height
+    
+    check: check
+
+    ItemConfirm:
+        text: root.workout
+        on_release: root.set_icon(check)
+        # divider: 'Full'
+
+    
+        LeftCheckbox:
+            id: check
+            active: False
+            # on_active: root.set_icon(check, input)
+
+<LeftCheckbox@ILeftBodyTouch+MDCheckbox>:
+     
+<ItemConfirm@OneLineAvatarIconListItem>:

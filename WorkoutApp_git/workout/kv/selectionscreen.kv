@@ -1,0 +1,97 @@
+#:kivy 2.0.0
+#:import schedule_manager backend.schedulemanager.schedule_manager
+
+
+<SelectionScreen>:
+
+    options_layout: options_layout
+
+    MDToolbar:
+        title: "Select Workout"
+        id: toolbar
+        specific_text_color: [.13,.13,.13,1]
+        right_action_items: [["plus", lambda x: root.show_new_workout_dialog(), 'Create new']]
+        halign: 'center'
+        pos_hint: {'top':1.0}
+        elevation: 10
+
+    MDBoxLayout:
+        orientation: "vertical"
+        size_hint: 1, None
+        height: self.minimum_height
+        y: root.height - toolbar.height - self.height
+        spacing: 5
+        padding: 5
+
+        # MDLabel:
+        #     text: 'Scheduled:'
+        #     adaptive_height: True
+        #     halign: 'center'
+
+                
+        ScrollView:
+            size_hint_y: None
+            height: root.height - toolbar.height - 80
+            
+            MDBoxLayout:
+                id: options_layout
+                orientation: 'vertical'
+                size_hint_y: None
+                height: self.minimum_height
+                spacing: 5
+                padding: 5
+                
+
+<WorkoutOptionCard>:
+
+    size_hint_y: None
+    height: 167
+
+
+    MDCardSwipeLayerBox:
+        padding: "8dp"
+
+        canvas:
+            Color:
+                rgb: [.95, .57, .26] # Orange
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "trash-can"
+            pos_hint: {"center_y": .5}
+            on_release: root.delete_template()
+            disabled: True if root.open_progress < 0.1 else False
+
+    MDCardSwipeFrontBox:
+        canvas:
+            Color: 
+                rgba: [.95, .57, .26, 1] if root.option_info.title == schedule_manager.next_name else [0,0,0,0]
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+            
+        # NextLabel:
+        #     text: 'next' if root.option_info.title == schedule_manager.next_name else ''
+
+        ThreeLineRightIconListItem:
+            id: content
+            text: root.option_info.title
+            secondary_text: root.option_info.last_completed
+            tertiary_text: root.option_info.lift_info
+            _no_ripple_effect: True
+
+            IconRightWidget:
+                icon: 'chevron-right'
+                on_release: root.launch_session_screen(app)
+
+
+
+<NextLabel@MDLabel>:
+    
+    theme_text_color: 'Custom'
+    text_color: [.95, .57, .26, 1]
+    pos_hint: {'top': 1, 'left': 0}
+    adaptive_width: True
+    adaptive_height: True
