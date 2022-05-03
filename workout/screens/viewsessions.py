@@ -7,6 +7,7 @@ from kivymd.uix.card import MDCardSwipe
 from kivy.uix.recycleview import RecycleView
 from kivy.uix.recycleview.views import RecycleDataViewBehavior
 from kivy.uix.label import Label
+from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.screen import MDScreen
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDFlatButton
@@ -18,10 +19,11 @@ from kivy.properties import StringProperty, ObjectProperty
 
 import backend.database as db
 from backend import utils
+
 from screens.sessionedit import EditScreen
 
-sessions = db.get_sessions()
-
+# sessions = db.get_sessions()
+manager = ScreenManager()
 
 class SessionInfo:
 
@@ -53,7 +55,18 @@ class ViewSessionsScreen(MDScreen):
 
 
     def _post_init(self, dt):
-        sessions = db.get_sessions()
+        sessions = db.get_sessions() #Check if db.get_sessions is used elsewhere. If not, maybe combine with the following step
+        sessions = [
+            {
+            'key': k, 
+            'date_str': utils.parse_date(v['date'], 'Day, Mon DD, YYYY'),
+            'date_obj': datetime.fromisoformat(v['date']),
+            'workout': 'lower' if not 'workout' in v else v['workout'],
+            'lifts': 'Bench Press' if not 'lifts' in v else v['lifts']
+            } 
+            for k,v in sessions.items()]
+
+        sessions.reverse()
         if sessions:
             self.box.add_widget(RV(sessions))
         else:
@@ -85,7 +98,7 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
 
     
     def launch_edit_screen(self,app):
-        manager = app.root.ids.data_sm
+        # manager = app.root.ids.data_sm
         if not manager.has_screen(self.key):
             manager.add_widget(
                 EditScreen(
@@ -96,10 +109,11 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
                     self.lifts,
                     ))
             
-        app.change_screen(
-            manager = manager, 
-            screen_name = self.key)
+        # app.change_screen(
+        #     manager = manager, 
+        #     screen_name = self.key)
 
+        manager.screen_name = self.key
 
     def show_confirm_dialog(self):
         key = 'confirm'

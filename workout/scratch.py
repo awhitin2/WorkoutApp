@@ -2,7 +2,7 @@ from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivy.core.window import Window
 
-from screens import _sessionscreen
+from screens import viewsessions
 
 
  
@@ -14,7 +14,7 @@ class MainApp(MDApp):
         Window.size = (375, 740)
         
 
-        return Builder.load_file("kv/scratch.kv")
+        return Builder.load_file("kv/viewsessionsscreen.kv")
 
     def on_start(self):
         pass
