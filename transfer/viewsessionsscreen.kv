@@ -1,0 +1,101 @@
+#:kivy 2.0.0
+#:include kv/edit.kv
+
+<ViewSessionsScreen>:
+
+    toolbar: toolbar
+    box: box
+
+    MDBoxLayout:
+        orientation: "vertical"
+        id: box
+        
+        MDToolbar:
+            id: toolbar
+            gitle: 'Sessions'
+            left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.data_sm, screen_name='data_screen', direction='right')]]
+            right_action_items: [["plus", lambda x: root._add_lift_dialog(), 'Add new lift'], ["trash-can-outline", lambda x: root.delete_all(), 'Delete all Sessions']]
+            specific_text_color: [.13,.13,.13,1]
+            elevation: 10
+
+        
+        
+        
+<MyButton>:
+  
+    MDCardSwipeLayerBox:
+        padding: "8dp"
+
+        canvas:
+            Color:
+                rgb: [.95, .57, .26, 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        MDIconButton:
+            icon: "trash-can"
+            pos_hint: {"center_y": .5}
+            on_release: root.show_confirm_dialog()
+            disabled: True if root.open_progress < 0.1 else False
+
+    MDCardSwipeFrontBox:
+        TwoLineRightIconListItem:
+            text: root.date_str
+            secondary_text: root.workout
+            _no_ripple_effect: True
+
+            IconRightWidget:
+                icon: 'pencil'
+                user_font_size: '15sp'
+                pos_hint: {'center_x': .5, 'center_y': .5}
+                on_release: root.launch_edit_screen(app)
+
+
+
+<RV>:
+    viewclass: 'MyButton'
+
+    RecycleBoxLayout:
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+        multiselect: True
+        touch_multiselect: True
+
+  
+
+<EditDialog>:
+    orientation: 'vertical'
+    adaptive_height: True
+
+    RelativeLayout:
+        adaptive_height: True
+        padding: 15
+        spacing: 15
+
+        EditableDateButton:
+            date_obj: root.date_obj
+            
+            pos_hint: {'center_x': .5}
+            text: root.date_str
+            on_press: self.show_date_picker()
+
+    MDBoxLayout:
+        orientation: 'horizontal'
+        adaptive_height: True
+            
+        MDTextField:
+            text: '15'
+            hint_text: '#'
+        
+        MDTextField:
+            text: '150'
+            hint_text: 'lbs'
+
+
+
+
+    
