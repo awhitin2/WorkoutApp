@@ -1,20 +1,16 @@
-
-from types import SimpleNamespace
 import functools
+from types import SimpleNamespace
 
-from kivy.lang import Builder
 from kivy.clock import Clock
-from kivymd.app import MDApp
 from kivy.properties import StringProperty, ObjectProperty, NumericProperty, BooleanProperty
 from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.button import MDIconButton, MDFlatButton, ButtonBehavior
+from kivymd.uix.button import MDFlatButton, ButtonBehavior
 from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
 from kivy.uix.label import Label
 from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
-from kivymd.uix.stacklayout import MDStackLayout
 from kivy.uix.stacklayout import StackLayout
 
 from backend import mapping 
@@ -22,15 +18,19 @@ from backend.schedulemanager import schedule_manager
 import backend.mapping as mapping
 import backend.database as db
 
+option = db.get_latest_workout_template()
 
 class SessionScreen(MDScreen):
     workout_info = ObjectProperty()
     toolbar = ObjectProperty()
     layout = ObjectProperty()
 
-    def __init__(self, workout_info: mapping.WorkoutOptionInfo, **kwargs):
+    def __init__(self, workout_info: mapping.WorkoutOptionInfo = None, **kwargs):
         super().__init__(**kwargs)
+        if not workout_info:
+            workout_info = option
         self.workout_info = workout_info
+        self.title = workout_info.title
         self.name: str = self.workout_info.id #For registration with ScreenManager
         self.dialogs: dict[str:MDDialog] = {}
         self.lift_cards: list = [] #Keep this or iterate through layout.children
@@ -39,7 +39,7 @@ class SessionScreen(MDScreen):
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
-        self.toolbar.title = self.workout_info.title
+        self.toolbar.title = self.title
         for lift, sets in self.workout_info.lift_info_dict.items():
             self.layout.add_widget(LiftCard(lift, sets))
         self.input_layouts = [card.input_layout for card in self.layout.children]
@@ -132,7 +132,7 @@ class SessionScreen(MDScreen):
             if not layout.is_empty():
                 layout.log_lift()
 
-    def _add_lift_dialog(self):
+    def show_add_lift_dialog(self):
         key = 'lift'
         if not key in self.dialogs:
             self.dialogs[key] =  MDDialog(
@@ -226,11 +226,11 @@ class RecordLayout(ScrollView):
     
 
 class RecordColumn(StackLayout):
-    date = ObjectProperty()
+    date = StringProperty()
 
     def  __init__(self, session_info: mapping.LiftSessionRecord, **kwargs) -> None:
         super().__init__(**kwargs)
-        self.date.text = session_info.date
+        self.date = session_info.date
         for set in session_info.sets:
             self.add_widget(RecordLabel(set))
 
@@ -242,9 +242,9 @@ class RecordLabel(Label):
         self.text = self._format_set(set)
 
     def _format_set(self, set:dict)->str:
-        if set['weight'] == '':
-            return set['reps']
-        return f"{set['reps']}x{set['weight']}"
+        if set['weight'] == 0: 
+            return str(set['reps'])
+        return f"{str(set['reps'])}x{str(set['weight'])}"
 
 class ColumnSpacer(MDBoxLayout):
     pass
@@ -337,7 +337,7 @@ class InputLayout(StackLayout):
         for row in self.input_rows:
             sets.append(row.get_dict())
             if row.weight:
-                weight = int(row.weight)
+                weight = row.weight
                 if weight > max:
                     max = weight
             for field in [row.rep_field, row.weight_field]:
@@ -347,7 +347,7 @@ class InputLayout(StackLayout):
         session_screen = self.parent.parent.parent.parent.parent.parent
         
         if not session_screen.session_key:
-            session_screen.session_key = db.register_session()
+            session_screen.session_key = db.register_session(session_screen.title)
             db.update_last_completed(session_screen.name)
 
             if session_screen.workout_info.title == schedule_manager.next_name:
@@ -381,14 +381,17 @@ class InputLayout(StackLayout):
 
 
 class InputRow(MDBoxLayout):
-    reps = StringProperty()
-    weight = StringProperty()
+    reps = NumericProperty()
+    weight = NumericProperty()
     empty = BooleanProperty(True)
     rep_field = ObjectProperty()
     set_field = ObjectProperty()
 
     def on_reps(self, *args):
         self.empty = self._is_empty()
+ 
+    # def on_reps(self, *args):  -- Test and maybe use this now that not requiring wieght
+    #     self.empty = False if self.reps else True
 
     def on_weight(self, *args):
         self.empty = self._is_empty()
@@ -408,8 +411,8 @@ class InputRow(MDBoxLayout):
     def get_dict(self):
         try:
             return {
-                'reps': int(self.reps), 
-                'weight': int(self.weight) if self.weight else 0}
+                'reps': self.reps,
+                'weight': self.weight if self.weight else 0}
         except ValueError:
             return None
 

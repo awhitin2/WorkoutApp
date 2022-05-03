@@ -39,7 +39,7 @@ class DataCard(MDCard):
     """Base card used on datascreen when no calculation to display"""
     pass
 
-class DataCardButton(DataCard): # No longer in use
+class DataCardButton(DataCard):
     """Data display card with button instead of calculation"""
     title = StringProperty()
     screen = StringProperty()
@@ -92,9 +92,9 @@ class DataCardCalc(DataCard):  #Composition over inheritance here?
 
     def calculate(self):
         if self.unit:
-            self.calculation = datacarddata.calc_functions[self.name][self.unit](self)
+            self.calculation = datacarddata.calc_functions[self.name][self.unit](self) #create datacardmanager to deal with this weirdness?
         else:
-            self.calculation = datacarddata._functions[self.name](self)
+            self.calculation = datacarddata.calc_functions[self.name](self)
 
     def on_calculation(self, *args):
         print('calculated')

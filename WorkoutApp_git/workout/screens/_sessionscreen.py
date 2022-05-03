@@ -1,9 +1,7 @@
-from types import SimpleNamespace
 import functools
-
+from types import SimpleNamespace
 
 from kivy.clock import Clock
-
 from kivy.properties import StringProperty, ObjectProperty, NumericProperty, BooleanProperty
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDFlatButton, ButtonBehavior
@@ -16,6 +14,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.stacklayout import StackLayout
 
 from backend import mapping 
+from backend.schedulemanager import schedule_manager
 import backend.mapping as mapping
 import backend.database as db
 
@@ -35,9 +34,7 @@ class SessionScreen(MDScreen):
         self.dialogs: dict[str:MDDialog] = {}
         self.input_layouts: list = None
         self.session_registered = False
-        # self.add_lift_dialog: MDDialog = None
-        # self.empty_dialog: MDDialog = None
-        # self.incomplete_dialog: MDDialog = None
+        self.session_key: str = None
      
         Clock.schedule_once(self._post_init)
 
@@ -378,8 +375,8 @@ class InputLayout(StackLayout):
 
 
 class InputRow(MDBoxLayout):
-    reps = StringProperty()
-    weight = StringProperty()
+    reps = NumericProperty()
+    weight = NumericProperty()
     empty = BooleanProperty(True)
     rep_field = ObjectProperty()
     set_field = ObjectProperty()

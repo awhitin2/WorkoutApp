@@ -1,4 +1,6 @@
 #:kivy 2.0.0
+MDScreen:
+    SessionScreen:
 
 <SessionScreen>:
 
@@ -11,7 +13,7 @@
         MDToolbar:
             id: toolbar
             left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.workout_sm, screen_name='selection_screen', direction='right')]]
-            right_action_items: [["plus", lambda x: root._add_lift_dialog(), 'Add new lift'], ["check", lambda x: root.validate_record(), 'Log Lifts']]
+            right_action_items: [["plus", lambda x: root.show_add_lift_dialog(), 'Add new lift'], ["check", lambda x: root.validate_record(), 'Log Lifts']]
             specific_text_color: [.13,.13,.13,1]
             halign: 'center'
             elevation: 10
@@ -44,7 +46,7 @@
     label_height: 75
 
     box: box
-    
+
     Label:
         text: root.lift
         size_hint_y: None
@@ -53,13 +55,12 @@
     MDSeparator:
 
     MDBoxLayout:
-
         id: box
         orientation: 'horizontal'
         
                    
 <RecordLayout>:
-    size_hint: 1, 1
+    size_hint_x: .75
     stack: stack
     scroll_x: 1
 
@@ -74,11 +75,10 @@
     orientation: 'tb-rl'
     size_hint: None, 1
     width: 197
-    date: date
     
 
     MDLabel:
-        id: date
+        id: root.date
         size_hint: 1, None
         height: 115
         halign: 'center'
@@ -133,6 +133,7 @@
 
 
 <InputLayout>:
+
     orientation: 'tb-rl'
     size_hint_x: .25
     layout: layout
@@ -152,8 +153,8 @@
     orientation: 'horizontal'
     size_hint_y: None
     height: 125
-    reps: rep_field.text
-    weight: weight_field.text
+    reps: int(rep_field.text) if rep_field.text else 0
+    weight: int(weight_field.text) if weight_field.text else 0
 
     rep_field: rep_field
     weight_field: weight_field

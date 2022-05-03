@@ -6,17 +6,16 @@ from kivy.uix.screenmanager import ScreenManager
 
 from kivy.lang import Builder
 
-from screens import viewsessions
+from screens.sessionscreen import SessionScreen
 
 
- 
 class MainApp(MDApp): 
     
     def build(self):
         self.theme_cls.theme_style = 'Dark'
         self.theme_cls.primary_palette = "Cyan"
         Window.size = (375, 740)
-        return Builder.load_file("kv/scratch.kv")
+        return Builder.load_file("kv/sessionscreen.kv")
 
     def on_start(self):
         pass

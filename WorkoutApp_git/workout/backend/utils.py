@@ -5,9 +5,11 @@ from datetime import datetime
 
 def parse_date(date: Union[datetime, str], format:str = 'Mon DD' ) -> str:
     """Convert datetime object to string in custom formats"""
+
     formats = {
         'YYYY-MM-DD' : '%Y-%m-%d',
-        'Mon DD' : '%b %d'
+        'Mon DD' : '%b %d',
+        'Day, Mon DD, YYYY': '%A, %b %d, %Y'
 }
     
     if isinstance(date, str):

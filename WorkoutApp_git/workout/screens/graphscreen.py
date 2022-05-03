@@ -21,7 +21,7 @@ import backend.database as db
 
 
 class GraphScreen(MDScreen):
-    figdisplay = ObjectProperty()
+    fig_display = ObjectProperty()
     lift_stack = ObjectProperty()
     period_stack = ObjectProperty()
     periods = ['Week', 'Month', '3 Months', '6 Months', 'Year', 'All Time']
@@ -34,7 +34,7 @@ class GraphScreen(MDScreen):
 
     def post_init(self, *args):
         self.mngr = FigManager()
-        self.mngr.register_display(self.figdisplay)
+        self.mngr.register_display(self.fig_display)
         self._add_lift_chips()
         self._add_period_chips()
         self._select_initial_chips()
@@ -116,12 +116,10 @@ class FigManager(Widget):
         super().__init__(**kwargs)
         self.displays: list[FigDisplay] = []
         self.figs = {}
-        self.lift, self.period = db.get_plot_initialization_info()
-        self.plot = ()
-        # self.bind(period = self.on_period)
-        # self.bind(lift = self.on_lift)
         self.bind(plot = self.on_plot)
-        self.set_fig(self.lift, self.period)
+        self.lift, self.period = db.get_plot_initialization_info() 
+ 
+        # self.set_fig(self.lift, self.period) #this is alreayd handle by on_period
 
     def on_period(self, *args):
         if self.lift and self.period:
@@ -136,7 +134,7 @@ class FigManager(Widget):
         display.set_display()
 
     def set_fig(self, lift, period):
-        if not self.figs.get((lift, period)):
+        if not (lift, period) in self.figs:
             self.figs[(lift, period)] = int(Figure(lift, period))
         plt.figure(self.figs[(lift, period)])
         self.plot = (lift, period)
@@ -150,7 +148,7 @@ class FigDisplay(ButtonBehavior, MDBoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.plot = None
-        # self.set_display()
+        self.set_display()
         
     def set_display(self):
         if self.plot:

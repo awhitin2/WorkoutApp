@@ -4,27 +4,34 @@ from kivy.lang import Builder
 from kivy.core.window import Window
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager
-from screens.sessionscreen import SessionScreen
-from screens.schedulescreen import ScheduleScreen, ScheduleCard
-from screens.selectionscreen import SelectionScreen
+from screens import datascreen
+from screens import schedulescreen
+from screens import sessionscreen
+from screens import graphscreen
+from screens import selectionscreen
+from screens import viewsessions
 from backend.mapping import WorkoutOptionInfo
 
 import backend.database as db
+
 
 def write_sessions()-> None:
     from datetime import datetime
 
     sessions = db.get_sessions()
     with open('backend/session_log.txt', 'w') as file:
-        for _, v in sessions.items():
-            date = datetime.fromisoformat(v['date'])
-            date_str = datetime.strftime(date, '%b %d, %Y')
-            file.write(date_str + '\n')
+        if sessions:
+            for _, v in sessions.items():
+                date = datetime.fromisoformat(v['date'])
+                date_str = datetime.strftime(date, '%b %d, %Y')
+                file.write(date_str + '\n')
+            else:
+                file.write(f'{datetime.now}: No sessions')
 
 class MainApp(MDApp): 
 
     screens = {}
-    scheduled: ScheduleCard = ObjectProperty()
+    scheduled: schedulescreen.ScheduleCard = ObjectProperty()
     scheduled_text = StringProperty()
     scheduled_string = StringProperty()
 
@@ -46,3 +53,6 @@ class MainApp(MDApp):
 
 
 MainApp().run()
+
+
+

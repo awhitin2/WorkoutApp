@@ -36,11 +36,9 @@ class SelectionScreen(MDScreen):
                 next_option = option
         self.options_layout.add_widget(WorkoutOptionCard(next_option), len(self.options_layout.children))
         
-
-    # def _add_template_card(self):
-
+        
     def show_new_workout_dialog(self):
-        if not self.dialogs.get('new_template'):
+        if not self.dialogs.get('new_template'): # fix this
             Builder.load_file('kv/workoutdialog.kv')
         self.dialogs['new_template'] = MDDialog(
             title="Create New Workout",

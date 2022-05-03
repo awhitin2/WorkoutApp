@@ -1,5 +1,4 @@
-
-from datetime import datetime, date
+import datetime
 from dateutil.relativedelta import relativedelta
 
 from firebase_admin import credentials, initialize_app, db
@@ -137,7 +136,7 @@ def get_start(period):
         '6 Months': relativedelta(months=+6),
         'Year' : relativedelta(years=+1),
     }
-    date = datetime.now()-delta[period]
+    date = datetime.datetime.now()-delta[period]
 
     return utils.parse_date(date, 'YYYY-MM-DD')
 
@@ -155,6 +154,16 @@ def get_plot_data(lift:str, period: str): #Change this to graph data
                     .start_at(start).get()         
     if data: 
         return mapping.PlotData(data, period)
+
+
+def get_session_lifts(key:str)->list:
+    return [*db.reference(f"sessions/{key}/lifts").get()]
+
+def get_lift_session(key: str, lift):
+    return db.reference(f'completed_lifts/{lift}/{key}/sets').get()
+
+
+
 
 # connect_to_firebase()
 # data = get_plot_data('Rows', 'Month')
@@ -181,9 +190,11 @@ def register_workout_template(data: dict):
         'lifts': data['lifts']
         })
 
-def register_completed_lift(key, lift, sets):
+def register_completed_lift(key, lift, sets, date = None):
+    if not date:
+        date = datetime.datetime.now().isoformat()
     db.reference(f'completed_lifts/{lift}/{key}').set({
-            'date': datetime.now().isoformat(),
+            'date': date,
             'sets': sets 
             })
         
@@ -195,24 +206,27 @@ def register_new_lift(lift):
 def register_session_manual(m,d):
     db.reference('/sessions').push(
         {
-        'date': datetime(2022, m, d).isoformat()
+        'date': datetime.datetime(2022, m, d).isoformat()
         })
 
-def register_session()->str:
+def register_session(workout)->str:
     '''Returns the key generated from the firebase push for use in logging
     the rest of session info. This is done so all info generated from logging a
     session can be easily tracked down and deleted if needed
     '''
     new_post_ref = db.reference('/sessions').push(
         {
-        'date': datetime.now().isoformat()
+        'date': datetime.datetime.now().isoformat(),
+        'workout': workout
         })
     return new_post_ref.key
 
-def register_graph_data(key: str, lift: str, weight: int)->None:
+def register_graph_data(key: str, lift: str, weight: int, date = None)->None:
+    if not date:
+        date = datetime.date.today().isoformat()
     db.reference(f'graph_data/{lift}/{key}').set(
         {
-        'date': date.today().isoformat(),
+        'date': date,
         'weight' : weight 
         })
 
@@ -227,13 +241,20 @@ def update_session(key: str, lift: str):
         lift : True
         })
 
+def update_session_date(key: str, date: str):
+
+    db.reference(f'/sessions/{key}').update(
+        {
+        'date' : date
+        })
+
 def update_next_index(next):
     ref = db.reference('schedule')
     ref.update({'next': next})
 
 def update_last_completed(workout):
     db.reference('workout_templates/'+workout).update({
-            'last_completed': datetime.now().isoformat()
+            'last_completed': datetime.datetime.now().isoformat()
             })
 
 def update_data_card(name, key, value):
@@ -246,15 +267,53 @@ def update_data_card(name, key, value):
 def set_schedule(schedule: dict):
     db.reference('schedule').set(schedule)
 
-def set_data_card(name, d: dict)->None:
-    db.reference('/data_cards/'+name).set(d)
+def set_data_cards()->None:
+    db.reference('data_cards').set({
+    'this_week' : 
+    {
+    'name' : 'this_week',
+    'title' : 'Sessions This Week',
+    'start_date_str':'',
+    'unit' : '',
+    'circle' : True}
+    ,
+    'sessions_per_week' : 
+    {
+    'name': 'sessions_per_week',
+    'title': 'Average Weekly Sessions',
+    'unit': '',
+    'circle' : True,
+    },
+
+    'current' : 
+    {
+    'name' : 'current',
+    'title' : 'Current Streak',
+    'start_date_str' : '',
+    },
+    'longest' : {
+    'name' : 'longest',
+    'title' : 'Longest Streak',
+    },
+})
 
 ### DELETIONS ###
 
 def delete_template(id: str):
     db.reference(f"/workout_templates/{id}").delete()
 
+def delete_session(key):
+    db.reference(f"sessions/{key}").delete()
+    
+
+def delete_completed_lift(key, lift):
+    db.reference(f"completed_lifts/{lift}/{key}").delete()
+
+def delete_graph_data(key, lift):
+    db.reference(f"graph_data/{lift}/{key}").delete()
+
 if __name__ == '__main__':
+    set_data_cards()
     pass
 
     # connect_to_firebase()
@@ -265,7 +324,4 @@ if __name__ == '__main__':
     # for m, d in zip(months, days):
     #     register_session_manual(m, d)
     # lift = "Bench Press"
-
-
-
 

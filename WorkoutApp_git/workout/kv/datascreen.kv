@@ -57,6 +57,10 @@
 
                 DataCardCalc:
                     name: 'longest'
+
+                DataCardButton:
+                    title: 'View/edit sessions'
+                    screen: 'view_sessions_screen'
     
 
 <DataCard>:
@@ -91,6 +95,7 @@
     MDIconButton:
         icon: 'chevron-right'
         pos_hint: {'center_x': .5, 'center_y': .5}
+        on_press: app.change_screen(app.root.ids.data_sm, root.screen)
     
         
 <Starting>:
