@@ -50,7 +50,7 @@ class ViewSessionsScreen(MDScreen):
             'key': k, 
             'date_str': utils.parse_date(v['date'], 'Day, Mon DD, YYYY'),
             'date_obj': datetime.date.fromisoformat(v['date']),
-            'workout': 'lower' if not 'workout' in v else v['workout'],
+            'workout': 'Custom' if not 'workout' in v else v['workout'],
             'lifts': {} if not 'lifts' in v else v['lifts']
             } 
             for k,v in sessions.items()]
@@ -73,7 +73,7 @@ class ViewSessionsScreen(MDScreen):
                 self.rv,
                 date_str, 
                 date_obj,
-                'new',
+                'Custom',
                 new = True
                 ))
         

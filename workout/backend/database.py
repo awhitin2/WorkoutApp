@@ -238,10 +238,11 @@ def update_session(key: str, lift: str):
         lift : True
         })
 
-def update_session_date(key: str, date: str):
+def update_session_date_workout(key: str, date: str, workout):
     db.reference(f'/sessions/{key}').update(
         {
-        'date' : date
+        'date' : date,
+        'workout' : workout
         })
 
 def update_next_index(next):

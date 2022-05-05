@@ -41,12 +41,18 @@ class EditScreen(MDScreen):
         self.new = new
         self.index:int = index
         self.dialogs = {}
+        self.stored_date = date_obj
+        self.stored_lift_data = {}
+        self.cards = [] #Do I want to constantly track these?
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
         self.toolbar.title = self.workout
         for lift in self.lifts:
-            self.scroll_layout.add_widget(EditableSessionCard(lift, self.key))
+            card = EditableSessionCard(lift, self.key)
+            self.scroll_layout.add_widget(card)
+            self.stored_lift_data[lift] = card.get_row_dicts()
+
 
     def on_date_obj(self, *args):
         if self.date_obj:
@@ -90,6 +96,9 @@ class EditScreen(MDScreen):
 
     def validate_record(self, *args):
         self.cards = [child for child in self.scroll_layout.children]
+
+        if not self._info_has_changed():
+            return
         
         if all([card.is_empty() for card in self.cards]): #Count the trues here to avoid another is_empty check?
             self._empty_dialog()
@@ -111,6 +120,23 @@ class EditScreen(MDScreen):
             return
 
         self._log_lifts()
+
+    def _info_has_changed(self):
+        '''Checks if any info has been changed by the user relative 
+        to what is in the database'''
+
+        if self.date_obj != self.stored_date:
+            return True
+        
+        if not self.cards:
+            self.cards = [child for child in self.scroll_layout.children]
+
+        lift_data = {card.lift: card.get_row_dicts() for card in self.cards}
+
+        if lift_data != self.stored_lift_data:
+            return True
+
+        return False
 
     def _empty_dialog(self):
         key = 'all empty'
@@ -157,7 +183,8 @@ class EditScreen(MDScreen):
         self._log_lifts()
 
     def _log_lifts(self, instance = None):
-        db.update_session_date(self.key, self.date_obj.isoformat())
+        db.update_session_date_workout(self.key, self.date_obj.isoformat(), self.workout)
+        self.stored_date = self.date_obj
 
         if not self.new:
             del self.rv.data[self.index]
@@ -175,7 +202,7 @@ class EditScreen(MDScreen):
         for card in self.cards:
             if not card.is_empty():
                 card.log_lift()
-
+        
         self._success_dialog()
 
     def _success_dialog(self):
@@ -193,6 +220,39 @@ class EditScreen(MDScreen):
             )
         self.dialogs[key].open()
 
+    def _leave_screen_dialog(self):
+        key = 'leave'
+        if not key in self.dialogs:
+            self.dialogs[key] = MDDialog(
+                text="There are unsaved changes which will be lost. Proceed anyway?",
+                buttons=[
+                MDFlatButton(
+                    text="CANCEL",
+                    theme_text_color="Custom",
+                    on_release = functools.partial(self._close_dialog, key)
+                ),
+                MDFlatButton(
+                    text="PROCEED",
+                    theme_text_color="Custom",
+                    on_release = functools.partial(self._proceed_leave_screen, key)
+                )
+                ]
+            )
+        self.dialogs[key].open()
+
+    def _proceed_leave_screen(self, key, instance):
+        print('leaving screen')
+        self._close_dialog(key)
+        # app.change_screen(manager=None, screen_name='view_sessions_screen', direction='right')
+
+
+    def return_to_view_sessions_screen(self):
+        if self._info_has_changed():
+            self._leave_screen_dialog()
+            return
+        self._proceed_leave_screen()
+
+
 class EditableDateButton(Button):
     date_obj = ObjectProperty()
 
@@ -201,22 +261,23 @@ class EditableDateButton(Button):
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, *args):
-        self.bind(date_obj = self.parent.parent.setter('date_obj'))
+        self.bind(date_obj = self.parent.parent.parent.setter('date_obj'))
 
     def show_date_picker(self):
-            date_dialog = MDDatePicker(
+            self.date_dialog = MDDatePicker(
                 year=self.date_obj.year,
                 month=self.date_obj.month,
                 day=self.date_obj.day,
                 min_year = 2020,
             )
-            date_dialog.bind(on_save=self._on_save)
-            date_dialog.open()
+            self.date_dialog.bind(on_save=self._on_save)
+            self.date_dialog.open()
 
         
     def _on_save(self, instance, value, range):
         if not self.date_obj == value:
             self.date_obj = value
+        self.date_dialog.dismiss()
     
            
 class EditableSessionCard(MDCardSwipe):
@@ -238,8 +299,10 @@ class EditableSessionCard(MDCardSwipe):
             if not data: 
                 data = []
             self.num_rows = len(data)
-            for row in data:
-                self.box.add_widget(EditRow(row), 1) #Using ** to expand row here doesn't work?
+            for d in data:
+                row = EditRow(d)
+                self.rows.append(row)
+                self.box.add_widget(row, 1) #Using ** to expand row here doesn't work?
         else:
             self.num_rows = sets
             for row in range(sets):
@@ -268,6 +331,9 @@ class EditableSessionCard(MDCardSwipe):
     def is_incomplete(self):
         return True if any([row.is_empty() for row in self.rows]) else False
 
+    def get_row_dicts(self):
+        return [row.get_dict() for row in self.rows]
+
     def log_lift(self):
 
         sets = [] #are these registered in reverse order? I think so
@@ -276,6 +342,12 @@ class EditableSessionCard(MDCardSwipe):
             d = row.get_dict()
             if d:
                 sets.append(d)
+                #Update for comparison when navigating away from page.
+                #More efficient here, but maybe more readable as it's own
+                #dict comprension in the EditScreen log_lift as
+                #self.stored_lift_data = {card.lift: card.get_row_dicts() for card in self.cards}
+                self.edit_screen.stored_lift_data[self.lift] = d 
+
             if row.weight:
                 weight = row.weight
                 if weight > max:
@@ -318,12 +390,14 @@ class EditRow(MDRelativeLayout):
     
 
     def remove(self):
-        if self.parent.parent.parent.num_rows == 1:
+        session_card = self.parent.parent.parent
+        if session_card.num_rows == 1:
             session_card = self.parent.parent.parent
-            session_card.remove()
+            session_card.remove() #Rename remove here to not confuse with the list method?
         else:
+            session_card.rows.remove(self)
             self.parent.remove_widget(self)
-        
+            
         print('remove row')
 
 
