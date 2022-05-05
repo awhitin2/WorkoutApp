@@ -1,5 +1,5 @@
 
-from datetime import datetime, date
+import datetime
 from dateutil.relativedelta import relativedelta
 
 from firebase_admin import credentials, initialize_app, db
@@ -137,7 +137,7 @@ def get_start(period):
         '6 Months': relativedelta(months=+6),
         'Year' : relativedelta(years=+1),
     }
-    date = datetime.now()-delta[period]
+    date = datetime.datetime.now()-delta[period]
 
     return utils.parse_date(date, 'YYYY-MM-DD')
 
@@ -155,6 +155,14 @@ def get_plot_data(lift:str, period: str): #Change this to graph data
                     .start_at(start).get()         
     if data: 
         return mapping.PlotData(data, period)
+
+def get_session_lifts(key:str)->list:
+    return [*db.reference(f"sessions/{key}/lifts").get()]
+
+def get_lift_session(key: str, lift):
+    return db.reference(f'completed_lifts/{lift}/{key}/sets').get()
+
+
 
 # connect_to_firebase()
 # data = get_plot_data('Rows', 'Month')
@@ -181,9 +189,11 @@ def register_workout_template(data: dict):
         'lifts': data['lifts']
         })
 
-def register_completed_lift(key, lift, sets):
+def register_completed_lift(key, lift, sets, date=None):
+    if not date:
+        date = datetime.date.today().isoformat()
     db.reference(f'completed_lifts/{lift}/{key}').set({
-            'date': datetime.now().isoformat(),
+            'date': date,
             'sets': sets 
             })
         
@@ -195,7 +205,7 @@ def register_new_lift(lift):
 def register_session_manual(m,d):
     db.reference('/sessions').push(
         {
-        'date': datetime(2022, m, d).isoformat()
+        'date': datetime.date(2022, m, d).isoformat()
         })
 
 def register_session()->str:
@@ -205,14 +215,16 @@ def register_session()->str:
     '''
     new_post_ref = db.reference('/sessions').push(
         {
-        'date': datetime.now().isoformat()
+        'date': datetime.date.today().isoformat()
         })
     return new_post_ref.key
 
-def register_graph_data(key: str, lift: str, weight: int)->None:
+def register_graph_data(key: str, lift: str, weight: int, date_str: str = None)->None:
+    if not date_str:
+        date_str = datetime.date.today().isoformat()
     db.reference(f'graph_data/{lift}/{key}').set(
         {
-        'date': date.today().isoformat(),
+        'date': date_str,
         'weight' : weight 
         })
 
@@ -221,10 +233,15 @@ def register_graph_data(key: str, lift: str, weight: int)->None:
 ### UPDATES ###
 
 def update_session(key: str, lift: str):
-
     db.reference(f'/sessions/{key}/lifts').update(
         {
         lift : True
+        })
+
+def update_session_date(key: str, date: str):
+    db.reference(f'/sessions/{key}').update(
+        {
+        'date' : date
         })
 
 def update_next_index(next):
@@ -233,7 +250,7 @@ def update_next_index(next):
 
 def update_last_completed(workout):
     db.reference('workout_templates/'+workout).update({
-            'last_completed': datetime.now().isoformat()
+            'last_completed': datetime.date.today().isoformat()
             })
 
 def update_data_card(name, key, value):
@@ -253,6 +270,26 @@ def set_data_card(name, d: dict)->None:
 
 def delete_template(id: str):
     db.reference(f"/workout_templates/{id}").delete()
+
+def delete_session(key):
+    db.reference(f"sessions/{key}").delete()
+
+def delete_all_sessions():
+    db.reference(f"sessions").delete()
+    
+def delete_completed_lift(key, lift):
+    db.reference(f"completed_lifts/{lift}/{key}").delete()
+
+def delete_all_completed_lifts():
+    db.reference(f"completed_lifts").delete()
+
+def delete_graph_data(key, lift):
+    db.reference(f"graph_data/{lift}/{key}").delete()
+
+def delete_all_graph_data():
+    db.reference(f"graph_data").delete()
+
+
 
 if __name__ == '__main__':
     pass

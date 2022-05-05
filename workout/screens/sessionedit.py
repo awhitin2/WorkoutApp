@@ -10,6 +10,7 @@ from kivymd.uix.relativelayout import MDRelativeLayout
 from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.picker import MDDatePicker
 from kivymd.uix.screen import MDScreen
+from kivy.uix.recycleview import RecycleView
 
 from kivymd.uix.textfield import MDTextField
 
@@ -27,17 +28,19 @@ class EditScreen(MDScreen):
     lifts = ObjectProperty()
     
     def __init__(
-            self, key: str, date_str: str, date_obj, 
-            workout: str, lifts: dict, **kw):
+            self, key: str, rv: RecycleView, date_str: str, date_obj, 
+            workout: str,  lifts: dict = {}, new = False, index: int = 0,**kw):
         super().__init__(**kw)
-        self.dialogs = {}
         self.name: str = key
         self.key: str = key
+        self.rv = rv 
         self.workout: str = workout
         self.date_str: str = date_str
         self.date_obj = date_obj
-
         self.lifts: dict[str:bool] = lifts
+        self.new = new
+        self.index:int = index
+        self.dialogs = {}
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
@@ -148,12 +151,38 @@ class EditScreen(MDScreen):
             ]
         )
         self.dialogs[key].open()
-        
+
+    def _proceed(self, key, instance):
+        self._close_dialog(key)
+        self._log_lifts()
+
+    def _log_lifts(self, instance = None):
+        db.update_session_date(self.key, self.date_obj.isoformat())
+
+        if not self.new:
+            del self.rv.data[self.index]
+
+        data = {
+            'key': self.key, 
+            'date_str': self.date_str,
+            'date_obj': self.date_obj,
+            'workout': self.workout,
+            'lifts': self.lifts
+            } 
+
+        self.rv.data.insert(self.index, data)
+
+        for card in self.cards:
+            if not card.is_empty():
+                card.log_lift()
+
+        self._success_dialog()
+
     def _success_dialog(self):
         key = 'success'
         if not key in self.dialogs:
             self.dialogs[key] = MDDialog(
-                text="Logged successfully",
+                text="Record updated succesfully",
                 buttons=[
                     MDFlatButton(
                         text="OK",
@@ -163,25 +192,6 @@ class EditScreen(MDScreen):
                 ]
             )
         self.dialogs[key].open()
-
-    def _proceed(self, key, instance):
-        self._close_dialog(key)
-        self._log_lifts()
-
-    def _log_lifts(self, instance = None):
-        db.update_session_date(self.key, self.date_obj.isoformat())
-        for card in self.cards:
-            if not card.is_empty():
-                card.log_lift()
-
-        # if validate:
-        #     if not self.validate_template(data):
-        #         return
-        # db.register_workout_template(data)
-        # new_template = db.get_latest_workout_template()
-        # self.options_layout.add_widget(
-        #     WorkoutOptionCard(new_template), len(self.options_layout.children))
-        # self.dialogs['new_template'].dismiss()
 
 class EditableDateButton(Button):
     date_obj = ObjectProperty()
@@ -221,10 +231,12 @@ class EditableSessionCard(MDCardSwipe):
         self.rows = []
         self.dialogs = {}
         self.box.bind(children= self._set_num_rows) 
-        self.session_screen = None
+        self.edit_screen = None
         
         if not sets:
             data = db.get_lift_session(key, lift)
+            if not data: 
+                data = []
             self.num_rows = len(data)
             for row in data:
                 self.box.add_widget(EditRow(row), 1) #Using ** to expand row here doesn't work?
@@ -236,7 +248,7 @@ class EditableSessionCard(MDCardSwipe):
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
-        self.session_screen = self.parent.parent.parent.parent
+        self.edit_screen = self.parent.parent.parent.parent
 
     def _add_rep(self):
         self.box.add_widget(EditRow(), 1)
@@ -246,7 +258,7 @@ class EditableSessionCard(MDCardSwipe):
         self.num_rows = len(children)-1
 
     def remove(self):
-        del self.session_screen.lifts[self.lift]
+        del self.edit_screen.lifts[self.lift]
         self.parent.remove_widget(self)
 
     def is_empty(self):
@@ -261,34 +273,22 @@ class EditableSessionCard(MDCardSwipe):
         sets = [] #are these registered in reverse order? I think so
         max = 0
         for row in self.rows:
-            sets.append(row.get_dict())
+            d = row.get_dict()
+            if d:
+                sets.append(d)
             if row.weight:
                 weight = row.weight
                 if weight > max:
                     max = weight
         
-        date = self.session_screen.date_obj.isoformat()
+        sets.reverse()
+        date = self.edit_screen.date_obj.isoformat()
         db.update_session(self.key, self.lift)
         db.register_completed_lift(self.key, self.lift, sets, date)
         db.register_graph_data(self.key, self.lift, max, date)
 
-        self._success_dialog()
-        #Delete the screen so reclicking generates a new one
-
-    def _success_dialog(self):
-        key = 'success'
-        if not key in self.dialogs:
-            self.dialogs[key] = MDDialog(
-                text="Record updated succesfully",
-                buttons=[
-                    MDFlatButton(
-                        text="OK",
-                        theme_text_color="Custom",
-                        on_release = functools.partial(self._close_dialog, key)
-                    ),
-                ]
-            )
-        self.dialogs[key].open()
+        #Delete the screen so reclicking generates a new one?    
+        
 
     def _close_dialog(self, key, instance):
         self.dialogs[key].dismiss()
@@ -308,9 +308,11 @@ class EditRow(MDRelativeLayout):
 
     def get_dict(self):
         try:
-            return {
+            d =  {
                 'reps': int(self.reps), 
                 'weight': int(self.weight) if self.weight else 0}
+            return d if d['reps'] != 0 else None
+
         except ValueError:
             return None
     
@@ -328,13 +330,13 @@ class EditRow(MDRelativeLayout):
 class AddLiftDialog(MDBoxLayout):
     scroll_box = ObjectProperty()
 
-    def __init__(self, lifts: dict, **kwargs):
+    def __init__(self, lifts: dict = {}, **kwargs):
         super().__init__(**kwargs)
         self.rows: list[AddLiftdialogRow] = []
-        for lift in db.get_lifts():
+        for lift in db.get_lifts(): #Better way to do this?
             if lift not in lifts:
                 self.scroll_box.add_widget(AddLiftdialogRow(lift))
-
+    
     def get_input_data(self)-> dict[str:int]:
         
         return {(row.lift if row.lift else None) : 

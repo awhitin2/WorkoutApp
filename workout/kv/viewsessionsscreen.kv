@@ -1,13 +1,19 @@
 #:kivy 2.0.0
 #:include kv/edit.kv
 
-MDScreen:
-    ViewSessionsScreen:
+MDScreen: 
+    ScreenManager:
+        id: manager
+
+        ViewSessionsScreen:
+            name: 'view_sessions_screen'
+
 
 <ViewSessionsScreen>:
 
     toolbar: toolbar
     box: box
+    rv: rv
 
     MDBoxLayout:
         orientation: "vertical"
@@ -17,12 +23,13 @@ MDScreen:
             id: toolbar
             gitle: 'Sessions'
             left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.data_sm, screen_name='data_screen', direction='right')]]
-            right_action_items: [["plus", lambda x: root._add_lift_dialog(), 'Add new lift'], ["trash-can-outline", lambda x: root.delete_all(), 'Delete all Sessions']]
+            right_action_items: [["plus", lambda x: root.add_session(app), 'Add Session'], ["trash-can-outline", lambda x: root.delete_all(), 'Delete all Sessions']]
             specific_text_color: [.13,.13,.13,1]
             elevation: 10
 
-        
-        
+        RV:
+            id: rv
+
         
 <MyButton>:
   
@@ -56,7 +63,7 @@ MDScreen:
 
 
 
-<RV>:
+<RV@RecycleView>:
     viewclass: 'MyButton'
 
     RecycleBoxLayout:

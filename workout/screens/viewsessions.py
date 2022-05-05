@@ -1,10 +1,10 @@
 from __future__ import annotations
-from datetime import datetime
+import datetime
 
 import functools
 from kivy.clock import Clock
 from kivymd.uix.card import MDCardSwipe
-from kivy.uix.recycleview import RecycleView
+
 from kivy.uix.recycleview.views import RecycleDataViewBehavior
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager
@@ -14,16 +14,12 @@ from kivymd.uix.button import MDFlatButton
 
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.picker import MDDatePicker
-from kivy.properties import StringProperty, ObjectProperty
-
+from kivy.properties import StringProperty, ObjectProperty, ListProperty
 
 import backend.database as db
 from backend import utils
-
 from screens.sessionedit import EditScreen
 
-# sessions = db.get_sessions()
-manager = ScreenManager()
 
 class SessionInfo:
 
@@ -32,22 +28,10 @@ class SessionInfo:
         self.date = utils.parse_date(value['date'], 'Day, Mon DD, YYYY')
     
 
-# sessions = [
-#     {
-#     'key': k, 
-#     'date_str': utils.parse_date(v['date'], 'Day, Mon DD, YYYY'),
-#     'date_obj': datetime.fromisoformat(v['date']),
-#     'workout': 'lower' if not 'workout' in v else v['workout'],
-#     'lifts': 'Bench Press' if not 'lifts' in v else v['lifts']
-#     } 
-#     for k,v in sessions.items()]
-
-# sessions.reverse()
-# sessions = sessions[:5]
-
 class ViewSessionsScreen(MDScreen):
     recycle_view = ObjectProperty()
     box = ObjectProperty()
+    rv = ObjectProperty()
 
     def __init__(self,  **kw):
         super().__init__(**kw)
@@ -55,26 +39,57 @@ class ViewSessionsScreen(MDScreen):
 
 
     def _post_init(self, dt):
+        self.build()
+
+    def build(self):
         sessions = db.get_sessions() #Check if db.get_sessions is used elsewhere. If not, maybe combine with the following step
-        sessions = [
+        
+        if sessions:
+            sessions = [
             {
             'key': k, 
             'date_str': utils.parse_date(v['date'], 'Day, Mon DD, YYYY'),
-            'date_obj': datetime.fromisoformat(v['date']),
+            'date_obj': datetime.date.fromisoformat(v['date']),
             'workout': 'lower' if not 'workout' in v else v['workout'],
-            'lifts': 'Bench Press' if not 'lifts' in v else v['lifts']
+            'lifts': {} if not 'lifts' in v else v['lifts']
             } 
             for k,v in sessions.items()]
+            sessions.reverse()
+            self.rv.data = sessions        
 
-        sessions.reverse()
-        if sessions:
-            self.box.add_widget(RV(sessions))
-        else:
-            self.box.add_widget(Label(text='No data to display'))
+        else: 
+            self.box.add_widget(Label(text='No data to display'),1)
+
+        
+        
+
+    def add_session(self, app):
+        key = db.register_session()
+        date_obj = datetime.date.today()
+        date_str = utils.parse_date(date_obj, 'Day, Mon DD, YYYY')
+        app.manager.add_widget(
+            EditScreen(
+                key, 
+                self.rv,
+                date_str, 
+                date_obj,
+                'new',
+                new = True
+                ))
+        
+        app.change_screen(None,
+            # manager = manager, 
+            screen_name = key)
 
 
     def delete_all(self):
-        self.recycle_view.data.clear()
+        self.box.remove_widget(self.rv)
+        self.box.add_widget(Label(text='No data to display'))
+        db.delete_all_sessions()
+        db.delete_all_completed_lifts()
+        db.delete_all_graph_data()
+        
+        # self.box.clear_widgets()
         #Delete all sessions and their corresponding graph/lift data
 
 
@@ -85,6 +100,7 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
     date_obj = ObjectProperty()
     key = StringProperty()
     workout = StringProperty() #Do I need these properties?
+    lifts = ObjectProperty()
 
     def __init__(self) -> None:
         super().__init__()
@@ -97,23 +113,24 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
             rv, index, data)
 
     
-    def launch_edit_screen(self,app):
+    def launch_edit_screen(self, app):
         # manager = app.root.ids.data_sm
-        if not manager.has_screen(self.key):
-            manager.add_widget(
+        rv = self.parent.parent
+        if not app.manager.has_screen(self.key):
+            app.manager.add_widget(
                 EditScreen(
                     self.key, 
+                    rv,
                     self.date_str, 
                     self.date_obj,
                     self.workout,
                     self.lifts,
+                    index = self.index,
                     ))
             
-        # app.change_screen(
-        #     manager = manager, 
-        #     screen_name = self.key)
-
-        manager.screen_name = self.key
+        app.change_screen(None,
+            # manager = manager, 
+            screen_name = self.key)
 
     def show_confirm_dialog(self):
         key = 'confirm'
@@ -151,7 +168,7 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
             db.delete_graph_data(self.key, lift)
         
     
-class RV(RecycleView):
-    def __init__(self, data, **kwargs):
-        super(RV, self).__init__(**kwargs)
-        self.data = data
+# class RV(RecycleView):
+#     def __init__(self, data, **kwargs):
+#         super(RV, self).__init__(**kwargs)
+#         self.data = data
