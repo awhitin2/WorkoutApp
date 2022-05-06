@@ -1,15 +1,9 @@
 #:kivy 2.0.0
 #:include kv/selectionscreen.kv
 #:include kv/sessionscreen.kv
-
-
-
 #:include kv/datascreen.kv
 #:include kv/schedulescreen.kv
-
-
-
-#include kv/graphscreen.kv
+#:include kv/graphscreen.kv
 
 
 MDScreen:
@@ -28,11 +22,6 @@ MDScreen:
                     name: "selection_screen"
                     id: selection_screen
 
-                # SessionScreen:
-                #     name: "session_screen"
-                #     id: session_screen
-                    
-
         MDBottomNavigationItem:
             name: 'data'
             text: 'Data'
@@ -45,9 +34,9 @@ MDScreen:
                     name: "data_screen"
                     id: data_screen
 
-                # GraphScreen:
-                #     name: 'graph_screen'
-                #     id: graph_screen
+                GraphScreen:
+                    name: 'graph_screen'
+                    id: graph_screen
 
 
         MDBottomNavigationItem:
