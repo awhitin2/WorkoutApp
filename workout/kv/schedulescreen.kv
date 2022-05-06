@@ -8,8 +8,7 @@
     MDToolbar:
         title: 'Schedule'
         id: toolbar
-        left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.data_sm,screen_name='data_screen', direction='right')]]
-        right_action_items: [["plus", lambda x: root.show_schedule_dialog(), 'Create new'], ["check", lambda x: root.save(), 'Save']]
+        right_action_items: [["plus", lambda x: root.show_schedule_dialog(), 'Add to Schedule'], ["check", lambda x: root.save(), 'Save']]
         specific_text_color: [.13,.13,.13,1]
         halign: 'center'
         pos_hint: {'top':1.0}

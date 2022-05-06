@@ -5,6 +5,7 @@ from kivy.core.window import Window
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager
 from screens.sessionscreen import SessionScreen
+from screens.datascreen import DataScreen
 from screens.schedulescreen import ScheduleScreen, ScheduleCard
 from screens.selectionscreen import SelectionScreen
 from backend.mapping import WorkoutOptionInfo

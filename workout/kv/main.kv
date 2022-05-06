@@ -4,7 +4,7 @@
 
 
 
-#include kv/datascreen.kv
+#:include kv/datascreen.kv
 #:include kv/schedulescreen.kv
 
 
@@ -41,9 +41,9 @@ MDScreen:
             ScreenManager:
                 id: data_sm
 
-                # DataScreen:
-                #     name: "data_screen"
-                #     id: data_screen
+                DataScreen:
+                    name: "data_screen"
+                    id: data_screen
 
                 # GraphScreen:
                 #     name: 'graph_screen'

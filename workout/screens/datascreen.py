@@ -1,3 +1,5 @@
+#Data cards are not taking newwly logged sessions into consideration
+
 from __future__ import annotations
 
 from datetime import datetime
@@ -94,7 +96,7 @@ class DataCardCalc(DataCard):  #Composition over inheritance here?
         if self.unit:
             self.calculation = datacarddata.calc_functions[self.name][self.unit](self)
         else:
-            self.calculation = datacarddata._functions[self.name](self)
+            self.calculation = datacarddata.calc_functions[self.name](self)
 
     def on_calculation(self, *args):
         print('calculated')

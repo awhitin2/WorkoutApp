@@ -31,6 +31,7 @@ class SessionScreen(MDScreen):
     def __init__(self, workout_info: mapping.WorkoutOptionInfo, **kwargs):
         super().__init__(**kwargs)
         self.workout_info = workout_info
+        self.title = workout_info.title
         self.name: str = self.workout_info.id #For registration with ScreenManager
         self.dialogs: dict[str:MDDialog] = {}
         self.lift_cards: list = [] #Keep this or iterate through layout.children
@@ -39,7 +40,7 @@ class SessionScreen(MDScreen):
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
-        self.toolbar.title = self.workout_info.title
+        self.toolbar.title = self.title
         for lift, sets in self.workout_info.lift_info_dict.items():
             self.layout.add_widget(LiftCard(lift, sets))
         self.input_layouts = [card.input_layout for card in self.layout.children]
@@ -134,22 +135,22 @@ class SessionScreen(MDScreen):
 
     def _add_lift_dialog(self):
         key = 'lift'
-        if not key in self.dialogs:
-            self.dialogs[key] =  MDDialog(
-                title="Select Lift",
-                type="custom",
-                content_cls = AddLiftDialog(self.workout_info.lift_info_dict),
-                buttons=[
-                    MDFlatButton(
-                        text="DISCARD",
-                        on_release=functools.partial(self._close_dialog, key)
-                    ),
-                    MDFlatButton(
-                        text="ADD", 
-                        on_release=self._validate_lift_dialog
-                    ),
-                ],
-            )
+        
+        self.dialogs[key] =  MDDialog(
+            title="Select Lift",
+            type="custom",
+            content_cls = AddLiftDialog(self.workout_info.lift_info_dict),
+            buttons=[
+                MDFlatButton(
+                    text="DISCARD",
+                    on_release=functools.partial(self._close_dialog, key)
+                ),
+                MDFlatButton(
+                    text="ADD", 
+                    on_release=self._validate_lift_dialog
+                ),
+            ],
+        )
         self.dialogs[key].open()
 
     def _validate_lift_dialog(self, *args):
@@ -226,11 +227,11 @@ class RecordLayout(ScrollView):
     
 
 class RecordColumn(StackLayout):
-    date = ObjectProperty()
+    date_label = ObjectProperty()
 
     def  __init__(self, session_info: mapping.LiftSessionRecord, **kwargs) -> None:
         super().__init__(**kwargs)
-        self.date.text = session_info.date
+        self.date_label.text = session_info.date
         for set in session_info.sets:
             self.add_widget(RecordLabel(set))
 
