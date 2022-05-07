@@ -35,11 +35,12 @@ class ViewSessionsScreen(MDScreen):
 
     def __init__(self,  **kw):
         super().__init__(**kw)
+        self.dialogs = {}
         Clock.schedule_once(self._post_init)
 
 
     def _post_init(self, dt):
-        self.build()
+        self.build() #Does this get called elswehere?
 
     def build(self):
         sessions = db.get_sessions() #Check if db.get_sessions is used elsewhere. If not, maybe combine with the following step
@@ -59,16 +60,15 @@ class ViewSessionsScreen(MDScreen):
 
         else: 
             self.box.add_widget(Label(text='No data to display'),1)
-
-        
         
 
     def add_session(self, app):
         key = db.register_session()
         date_obj = datetime.date.today()
         date_str = utils.parse_date(date_obj, 'Day, Mon DD, YYYY')
-        app.manager.add_widget(
-            EditScreen(
+        manager = app.root.ids.data_sm
+        manager.add_widget(
+            EditScreen(  ## This is somehow inexplicably remembering previous deleted sessions andpassing their lift info
                 key, 
                 self.rv,
                 date_str, 
@@ -77,23 +77,42 @@ class ViewSessionsScreen(MDScreen):
                 new = True
                 ))
         
-        app.change_screen(None,
-            # manager = manager, 
-            screen_name = key)
+        app.change_screen(manager, screen_name = key)
 
+    def confirm_delete_dialog(self):
+        key = 'confirm'
+        if not key in self.dialogs:
+            self.dialogs[key] = MDDialog(
+                text='Are you sure you want to delete ALL sessions? This action cannot be undone.',
+                buttons=[
+                    MDFlatButton(
+                        text="CANCEL",
+                        theme_text_color="Custom",
+                        on_release = functools.partial(self._close_dialog, key)
+                    ),
+                    MDFlatButton(
+                        text="PROCEED",
+                        theme_text_color="Custom",
+                        on_release = functools.partial(self._delete_all, key)
+                    )
+                ]
+            )
+        self.dialogs[key].open()
 
-    def delete_all(self):
+    def _close_dialog(self, key, instance=None):
+        self.dialogs[key].dismiss()
+
+    def _delete_all(self, key, instance):
         self.box.remove_widget(self.rv)
         self.box.add_widget(Label(text='No data to display'))
         db.delete_all_sessions()
         db.delete_all_completed_lifts()
         db.delete_all_graph_data()
+        self._close_dialog(self, key)
         
-        # self.box.clear_widgets()
-        #Delete all sessions and their corresponding graph/lift data
 
 
-class MyButton(RecycleDataViewBehavior, MDCardSwipe):
+class SessionCard(RecycleDataViewBehavior, MDCardSwipe):
 
     index = None
     date_str = StringProperty()
@@ -109,15 +128,15 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
     def refresh_view_attrs(self, rv, index, data):
         ''' Catch and handle the view changes '''
         self.index = index
-        return super(MyButton, self).refresh_view_attrs(
+        return super(SessionCard, self).refresh_view_attrs(
             rv, index, data)
 
     
-    def launch_edit_screen(self, app):
-        # manager = app.root.ids.data_sm
+    def launch_edit_screen(self, app): # Check out "switch_to" a new ScreenManager method
+        manager = app.root.ids.data_sm
         rv = self.parent.parent
-        if not app.manager.has_screen(self.key):
-            app.manager.add_widget(
+        if not manager.has_screen(self.key):
+            manager.add_widget(
                 EditScreen(
                     self.key, 
                     rv,
@@ -128,15 +147,13 @@ class MyButton(RecycleDataViewBehavior, MDCardSwipe):
                     index = self.index,
                     ))
             
-        app.change_screen(None,
-            # manager = manager, 
-            screen_name = self.key)
+        app.change_screen(manager, screen_name = self.key)
 
-    def show_confirm_dialog(self):
+    def confirm_delete_dialog(self):
         key = 'confirm'
         if not key in self.dialogs:
             self.dialogs[key] = MDDialog(
-                text='Are you sure you want to delete this session?',
+                text='Are you sure you want to delete this session? This action cannot be undone.',
                 buttons=[
                     MDFlatButton(
                         text="CANCEL",

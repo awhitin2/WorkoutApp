@@ -21,9 +21,9 @@ MDScreen:
         
         MDToolbar:
             id: toolbar
-            gitle: 'Sessions'
+            title: 'Sessions'
             left_action_items: [["chevron-left", lambda x: app.change_screen(manager=app.root.ids.data_sm, screen_name='data_screen', direction='right')]]
-            right_action_items: [["plus", lambda x: root.add_session(app), 'Add Session'], ["trash-can-outline", lambda x: root.delete_all(), 'Delete all Sessions']]
+            right_action_items: [["plus", lambda x: root.add_session(app), 'Add Session'], ["trash-can-outline", lambda x: root.confirm_delete_dialog(), 'Delete all Sessions']]
             specific_text_color: [.13,.13,.13,1]
             elevation: 10
 
@@ -31,7 +31,7 @@ MDScreen:
             id: rv
 
         
-<MyButton>:
+<SessionCard>:
   
     MDCardSwipeLayerBox:
         padding: "8dp"
@@ -46,7 +46,7 @@ MDScreen:
         MDIconButton:
             icon: "trash-can"
             pos_hint: {"center_y": .5}
-            on_release: root.show_confirm_dialog()
+            on_release: root.confirm_delete_dialog()
             disabled: True if root.open_progress < 0.1 else False
 
     MDCardSwipeFrontBox:
@@ -64,7 +64,7 @@ MDScreen:
 
 
 <RV@RecycleView>:
-    viewclass: 'MyButton'
+    viewclass: 'SessionCard'
 
     RecycleBoxLayout:
         default_size: None, dp(56)

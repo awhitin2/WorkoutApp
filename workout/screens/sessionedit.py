@@ -1,5 +1,6 @@
 import functools
 
+from kivymd.app import MDApp
 from kivy.clock import Clock
 from kivy.properties import ObjectProperty, StringProperty, NumericProperty, ListProperty, BooleanProperty
 from kivymd.uix.button import MDFlatButton, MDRectangleFlatButton
@@ -31,7 +32,7 @@ class EditScreen(MDScreen):
             self, key: str, rv: RecycleView, date_str: str, date_obj, 
             workout: str,  lifts: dict = {}, new = False, index: int = 0,**kw):
         super().__init__(**kw)
-        self.name: str = key
+        self.name: str = key 
         self.key: str = key
         self.rv = rv 
         self.workout: str = workout
@@ -59,8 +60,8 @@ class EditScreen(MDScreen):
             self.date_str = utils.parse_date(self.date_obj, 'Day, Mon DD, YYYY')
 
 
-    def add_lift(self):
-        print('Add lift')
+    # def add_lift(self):
+    #     print('Add lift')
 
     def show_add_lift_dialog(self):
         key = 'new_lift'
@@ -68,7 +69,7 @@ class EditScreen(MDScreen):
         self.dialogs[key] = MDDialog(
         title="Add Lift to Session",
         type="custom",
-        content_cls = AddLiftDialog(self.lifts),
+        content_cls = EditAddLiftDialog(self.lifts),
         buttons=[
             MDFlatButton(
                 text="DISCARD",
@@ -131,7 +132,14 @@ class EditScreen(MDScreen):
         if not self.cards:
             self.cards = [child for child in self.scroll_layout.children]
 
-        lift_data = {card.lift: card.get_row_dicts() for card in self.cards}
+        # lift_data = {} #This is faster but less readable?
+        # for card in self.cards:
+        #     d = card.get_row_dicts()
+        #     if d:
+        #         lift_data[card.lift] = d
+
+        lift_data = {card.lift: card.get_row_dicts() for card in self.cards 
+                    if card.get_row_dicts() != []}
 
         if lift_data != self.stored_lift_data:
             return True
@@ -220,6 +228,13 @@ class EditScreen(MDScreen):
             )
         self.dialogs[key].open()
 
+    def return_to_view_sessions_screen(self):
+        if self._info_has_changed():
+            self._leave_screen_dialog()
+        else: 
+            self._proceed_leave_screen()
+        
+
     def _leave_screen_dialog(self):
         key = 'leave'
         if not key in self.dialogs:
@@ -240,17 +255,15 @@ class EditScreen(MDScreen):
             )
         self.dialogs[key].open()
 
-    def _proceed_leave_screen(self, key, instance):
-        print('leaving screen')
-        self._close_dialog(key)
-        # app.change_screen(manager=None, screen_name='view_sessions_screen', direction='right')
-
-
-    def return_to_view_sessions_screen(self):
-        if self._info_has_changed():
-            self._leave_screen_dialog()
-            return
-        self._proceed_leave_screen()
+    def _proceed_leave_screen(self, key = 'leave', instance=None):
+        if key in self.dialogs:
+            self._close_dialog('leave')
+        app = MDApp.get_running_app()
+        manager = app.root.ids.data_sm
+        app.change_screen(manager, screen_name='view_sessions_screen', direction='right')
+        manager.remove_widget(self)
+        db.delete_session(self.key)
+        print('here now')
 
 
 class EditableDateButton(Button):
@@ -306,6 +319,8 @@ class EditableSessionCard(MDCardSwipe):
         else:
             self.num_rows = sets
             for row in range(sets):
+                row = EditRow()
+                self.rows.append(row)
                 self.box.add_widget(EditRow(),1)
 
         Clock.schedule_once(self._post_init)
@@ -313,9 +328,11 @@ class EditableSessionCard(MDCardSwipe):
     def _post_init(self, dt):
         self.edit_screen = self.parent.parent.parent.parent
 
-    def _add_rep(self):
-        self.box.add_widget(EditRow(), 1)
-        print("add rep")
+    def _add_set(self):
+        row = EditRow()
+        self.rows.append(row)
+        self.box.add_widget(row, 1)
+        print("add set")
     
     def _set_num_rows(self, instance, children):
         self.num_rows = len(children)-1
@@ -401,15 +418,15 @@ class EditRow(MDRelativeLayout):
         print('remove row')
 
 
-class AddLiftDialog(MDBoxLayout):
+class EditAddLiftDialog(MDBoxLayout):
     scroll_box = ObjectProperty()
 
     def __init__(self, lifts: dict = {}, **kwargs):
         super().__init__(**kwargs)
-        self.rows: list[AddLiftdialogRow] = []
+        self.rows: list[EditAddLiftDialogRow] = []
         for lift in db.get_lifts(): #Better way to do this?
             if lift not in lifts:
-                self.scroll_box.add_widget(AddLiftdialogRow(lift))
+                self.scroll_box.add_widget(EditAddLiftDialogRow(lift))
     
     def get_input_data(self)-> dict[str:int]:
         
@@ -418,7 +435,7 @@ class AddLiftDialog(MDBoxLayout):
                 for row in self.scroll_box.children if row.check.active}
         
         
-class AddLiftdialogRow(MDBoxLayout):
+class EditAddLiftDialogRow(MDBoxLayout):
     lift = StringProperty()
     check = ObjectProperty()
     input = ObjectProperty()

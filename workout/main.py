@@ -2,12 +2,11 @@
 from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window import Window
-from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.screenmanager import ScreenManager
 from screens.selectionscreen import SelectionScreen
 from screens.sessionscreen import SessionScreen
 from screens.datascreen import DataScreen
-from screens.schedulescreen import ScheduleScreen, ScheduleCard
+from screens.schedulescreen import ScheduleScreen
 
 
 import backend.database as db
@@ -16,18 +15,14 @@ def write_sessions()-> None:
     from datetime import datetime
 
     sessions = db.get_sessions()
-    with open('backend/session_log.txt', 'w') as file:
-        for _, v in sessions.items():
-            date = datetime.fromisoformat(v['date'])
-            date_str = datetime.strftime(date, '%b %d, %Y')
-            file.write(date_str + '\n')
+    if sessions:
+        with open('backend/session_log.txt', 'w') as file:
+            for _, v in sessions.items():
+                date = datetime.fromisoformat(v['date'])
+                date_str = datetime.strftime(date, '%b %d, %Y')
+                file.write(date_str + '\n')
 
 class MainApp(MDApp): 
-
-    screens = {}
-    scheduled: ScheduleCard = ObjectProperty()
-    scheduled_text = StringProperty()
-    scheduled_string = StringProperty()
 
     def on_scheduled(self, *args):
         self.scheduled_text = self.scheduled.text
@@ -41,7 +36,8 @@ class MainApp(MDApp):
     def on_start(self):
         write_sessions()
 
-    def change_screen(self, manager: ScreenManager, screen_name: str, direction:str = 'left'): ## use a setter here?
+    #Set screen managers as objects directly rather than referencing via id
+    def change_screen(self, manager: ScreenManager, screen_name: str, direction:str = 'left'):
         manager.transition.direction = direction
         manager.current = screen_name
 

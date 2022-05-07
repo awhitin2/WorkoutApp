@@ -4,6 +4,7 @@
 #:include kv/datascreen.kv
 #:include kv/schedulescreen.kv
 #:include kv/graphscreen.kv
+#:include kv/viewsessionsscreen.kv
 
 
 MDScreen:
@@ -38,28 +39,17 @@ MDScreen:
                     name: 'graph_screen'
                     id: graph_screen
 
+                ViewSessionsScreen:
+                    name: 'view_sessions_screen'
+                    id: view_sessions_screen
+
 
         MDBottomNavigationItem:
             name: 'schedule'
             text: 'Schedule'
-            icon: 'chart-line'
+            icon: 'calendar'
 
             
             ScheduleScreen:
                 name: 'schedule_screen'
                 id: schedule_screen
-
-            
-        # MDBottomNavigationItem:
-        #     name: 'home'
-        #     text: 'Home'
-        #     icon: 'home'
-            
-            
-        #     HomeScreen:
-        #         name: "home_screen"
-        #         id: home_screen
-
-                # SessionScreen:
-                #     name: "session_screen"
-                #     id: session_screen

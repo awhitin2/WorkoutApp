@@ -23,6 +23,7 @@ from backend import colors
 import backend.database as db
 from backend import datacarddata
 from screens import graphscreen
+from screens import viewsessions
 
 
 class DataScreen(MDScreen):
@@ -41,7 +42,7 @@ class DataCard(MDCard):
     """Base card used on datascreen when no calculation to display"""
     pass
 
-class DataCardButton(DataCard): # No longer in use
+class DataCardButton(DataCard): 
     """Data display card with button instead of calculation"""
     title = StringProperty()
     screen = StringProperty()
@@ -122,14 +123,14 @@ class EditView(MDBoxLayout):
     def __init__(self, base_card, **kwargs):
         super().__init__(**kwargs)
         self.base_card = base_card
-        Clock.schedule_once(self._finish_init, 0)
+        Clock.schedule_once(self._post_init, 0)
 
-    def _finish_init(self, dt):
-        self.add_target_widget()
+    def _post_init(self, dt):
         if self.base_card.start_date_str:
             self.add_starting_widget()
         if self.base_card.unit:
             self.add_unit_widget()
+        self.add_target_widget()
 
     def add_starting_widget(self):
         self.add_widget(Starting(base_card = self.base_card))

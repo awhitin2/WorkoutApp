@@ -110,7 +110,7 @@
                     line_color: [0, 0, 0, 0]
                     icon_color: [.95, .57, .26, 1]
                     pos_hint: {'center_x': .5, 'center_y': .5}
-                    on_press: root._add_rep()
+                    on_press: root._add_set()
                     
 
 <EditRow>:
@@ -149,7 +149,7 @@
         on_press: root.remove()
         pos_hint: {'right': 1, 'top': .85}
 
-<AddLiftDialog>:
+<EditAddLiftDialog>:
     orientation: 'vertical'
     size_hint_y: None
     height: '300dp'
@@ -166,7 +166,7 @@
             spacing: "12dp"
             
     
-<AddLiftDialogRow>:
+<EditAddLiftDialogRow>:
     orientation: 'horizontal'
     size_hint_y: None
     height: self.minimum_height
