@@ -24,6 +24,7 @@ import backend.database as db
 from backend import datacarddata
 from screens import graphscreen
 from screens import viewsessions
+from backend import figmanager
 
 
 class DataScreen(MDScreen):
@@ -34,7 +35,7 @@ class DataScreen(MDScreen):
         Clock.schedule_once(self._post_init)
 
     def _post_init(self, dt):
-        mngr = graphscreen.FigManager()
+        mngr = figmanager.manager
         mngr.register_display(self.fig_display)
 
 

@@ -244,8 +244,8 @@ class RecordLabel(Label):
         self.text = self._format_set(set)
 
     def _format_set(self, set:dict)->str:
-        if set['weight'] == '':
-            return set['reps']
+        if set['weight'] == 0:
+            return str(set['reps'])
         return f"{set['reps']}x{set['weight']}"
 
 class ColumnSpacer(MDBoxLayout):

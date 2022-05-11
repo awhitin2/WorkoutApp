@@ -226,7 +226,7 @@ def get_start(period): #is this used elswehere or just in get_plot_data below?
 
     return date
 
-def get_plot_initialization_info():
+def get_plot_initialization_info(): #This can probably just return the first options?
     return('Bench Press', '3 Months')
 
 def get_plot_data(lift:str, period: str): #Change this to graph data
