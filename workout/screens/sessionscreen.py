@@ -196,6 +196,7 @@ class RecordLayout(ScrollView):
     def __init__(self, lift, sets, **kwargs):
         super().__init__(**kwargs)
         self.lift = lift
+        self.start_id: str = None #call this db_start_id or similar
         self.set_records()
 
     def set_records(self):
@@ -208,10 +209,10 @@ class RecordLayout(ScrollView):
                 self.start_id = previous_sessions[-1].id
                 self.stack.add_widget(
                     LoadMore(on_press = self.load_more_records))
-            if len(previous_sessions) == 2:
+            if len(previous_sessions) == 2: #Explain here
                 self.stack.add_widget(ColumnSpacer())
             if len(previous_sessions) == 1:
-                self.stack.add_widget(NoData(width = 197*2))
+                self.stack.add_widget(NoData(width = 197*2)) #fix this 197
         else: 
             self.stack.add_widget(NoData(width = 197*3))
 
@@ -221,7 +222,7 @@ class RecordLayout(ScrollView):
                                         self.lift, self.start_id, 3)
         for session in previous_sessions:
             self.stack.add_widget(RecordColumn(session))
-        if more:
+        if more: #identical to 208-211
             self.start_id = previous_sessions[-1].id
             self.stack.add_widget(LoadMore(on_press = self.load_more_records))
     
@@ -236,7 +237,7 @@ class RecordColumn(StackLayout):
             self.add_widget(RecordLabel(set))
 
 class RecordLabel(Label):
-    set = ObjectProperty()
+    set = ObjectProperty() #exercise set or similar
 
     def __init__(self, set: dict, **kwargs):
         super().__init__(**kwargs)
@@ -267,7 +268,7 @@ class InputLayout(StackLayout):
             row = InputRow()
             self.add_widget(row)
             self.input_rows.append(row)
-        self.empty_rows = len(self.input_rows)
+        self.empty_rows = len(self.input_rows) #explain this
 
     def validate(self, *args):
         if self.is_empty():
@@ -334,9 +335,9 @@ class InputLayout(StackLayout):
     def log_lift(self):
 
         sets = []
-        max = 0
+        max = 0 #explain this
         for row in self.input_rows:
-            sets.append(row.get_dict())
+            sets.append(row.get_dict()) #rename?
             if row.weight:
                 weight = int(row.weight)
                 if weight > max:
@@ -344,11 +345,12 @@ class InputLayout(StackLayout):
             for field in [row.rep_field, row.weight_field]:
                 field.text = ''
         
-        #This is hideous
+        #This is hideous 
+        #while type is not Screen manager, keep grapping parent
         session_screen = self.parent.parent.parent.parent.parent.parent
         
         if not session_screen.session_key:
-            session_screen.session_key = db.register_session()
+            session_screen.session_key = db.register_session(session_screen.title)
             db.update_last_completed(session_screen.name)
 
             if session_screen.workout_info.title == schedule_manager.next_name:

@@ -22,12 +22,6 @@
         y: root.height - toolbar.height - self.height
         spacing: 5
         padding: 5
-
-        # MDLabel:
-        #     text: 'Scheduled:'
-        #     adaptive_height: True
-        #     halign: 'center'
-
                 
         ScrollView:
             size_hint_y: None
@@ -72,8 +66,6 @@
                 width: 2
                 rectangle: self.x, self.y, self.width, self.height
             
-        # NextLabel:
-        #     text: 'next' if root.option_info.title == schedule_manager.next_name else ''
 
         ThreeLineRightIconListItem:
             id: content
@@ -95,3 +87,69 @@
     pos_hint: {'top': 1, 'left': 0}
     adaptive_width: True
     adaptive_height: True
+
+
+<WorkoutDialog>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: '420dp'
+
+    title_field: title_field
+    scroll_box: scroll_box
+
+
+    MDTextField:
+        id: title_field
+        hint_text: "Workout Title"
+        required: True
+        
+
+    ScrollView:
+        MDBoxLayout:
+            id: scroll_box
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+            
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: self.minimum_height
+
+                MDIconButton:
+                    icon: 'plus'
+                    on_release: 
+                        root.add_lift_row(input.text)
+                        root.register_new_lift(input.text)
+                        input.text = ''
+
+                MDTextField:
+                    hint_text: 'Add New Lift'
+                    id: input
+                        
+
+<WorkoutDialogLiftRow>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    height: self.minimum_height
+
+    check: check
+    input: input
+
+    OneLineAvatarListItem:
+        text: root.lift
+        on_release: root.set_icon(check, input)
+        divider: None
+        
+    
+        LeftCheckbox:
+            id: check
+            
+    MDTextField:
+        id: input
+        hint_text: "# sets"
+        size_hint_x: 0
+        disabled: True
+
+
+<LeftCheckbox@ILeftBodyTouch+MDCheckbox>:

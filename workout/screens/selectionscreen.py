@@ -8,7 +8,6 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.screen import MDScreen
-from numpy import isin
 from screens.sessionscreen import SessionScreen
 
 from backend import mapping
@@ -34,14 +33,11 @@ class SelectionScreen(MDScreen):
                 self.options_layout.add_widget(WorkoutOptionCard(option))
             else:
                 next_option = option
+        #Wrap in try except
         self.options_layout.add_widget(WorkoutOptionCard(next_option), len(self.options_layout.children))
         
 
-    # def _add_template_card(self):
-
     def show_new_workout_dialog(self):
-        if not self.dialogs.get('new_template'):
-            Builder.load_file('kv/workoutdialog.kv')
         self.dialogs['new_template'] = MDDialog(
             title="Create New Workout",
             type="custom",
@@ -60,8 +56,8 @@ class SelectionScreen(MDScreen):
         )
         self.dialogs['new_template'].open()
 
-    def close_dialog(self, dialog, *args):
-        self.dialogs[dialog].dismiss()
+    def close_dialog(self, key, *args): #consider dialog name
+        self.dialogs[key].dismiss()
 
     def process_dialog_input(self, instance, validate: bool = True, *args):
         data = self.dialogs['new_template'].content_cls.get_input_data()
@@ -94,8 +90,6 @@ class SelectionScreen(MDScreen):
             if data['lifts'] == existing.lift_info_dict:
                 self.trigger_confirm_dialog(f'The existing template {existing.title} has identical lifts and sets. Do you wish to proceed?')
                 return
-
-        ## Check if set/lift combo exists elsewhere
         return True
 
     def trigger_confirm_dialog(self, error_text):
@@ -104,17 +98,15 @@ class SelectionScreen(MDScreen):
             text = error_text,
             buttons = [
                 MDFlatButton(
-                        text="Discard",
-                        on_release = functools.partial(self.close_dialog, 'confirm')),
+                    text="Discard",
+                    on_release = functools.partial(self.close_dialog, 'confirm')),
                 MDFlatButton(
-                        text="Confirm",
-                        on_press = functools.partial(
-                                                self.process_dialog_input, 
-                                                validate = False),
-                        on_release = functools.partial(self.close_dialog, 'confirm')
-                        
-
-                        )])
+                    text="Confirm",
+                    on_press = functools.partial(
+                        self.process_dialog_input, 
+                        validate = False),
+                    on_release = functools.partial(self.close_dialog, 'confirm')
+                    )])
         self.dialogs['confirm'].open()
 
 
@@ -123,8 +115,8 @@ class SelectionScreen(MDScreen):
             title = 'Error',
             text = error_text,
             buttons = [MDFlatButton(
-                        text="OK",
-                        on_release = functools.partial(self.close_dialog, 'error'))])
+                text="OK",
+                on_release = functools.partial(self.close_dialog, 'error'))])
         self.dialogs['error'].open()
 
 
@@ -132,7 +124,7 @@ class WorkoutOptionCard(MDCardSwipe):
     option_info = ObjectProperty()
     
     def __init__(self, option_info: mapping.WorkoutOptionInfo, **kwargs):
-        self.option_info = option_info
+        self.option_info = option_info #Check this
         super().__init__(**kwargs)
     
         
@@ -161,16 +153,12 @@ class WorkoutDialog(MDBoxLayout):
         for lift in db.get_lifts():
             self.add_lift_row(lift)
             
-
     def add_lift_row(self,lift):
         row = (WorkoutDialogLiftRow(lift))
         self.rows.append(row)
         self.scroll_box.add_widget(row)
 
     def get_input_data(self)-> dict:
-        # data = {
-        #     'title': self.title_field.title
-        # }
         data = {
             'title': self.title_field.text,
             'lifts': {(row.lift if row.lift else None) : 
@@ -186,8 +174,8 @@ class WorkoutDialog(MDBoxLayout):
         
 class WorkoutDialogLiftRow(MDBoxLayout):
     lift = StringProperty()
-    check = ObjectProperty()
-    input = ObjectProperty()
+    check = ObjectProperty() #is_selected_checkbox
+    input = ObjectProperty() #num_sets_text_field
 
     def __init__(self, lift, **kwargs):
         super().__init__(**kwargs)

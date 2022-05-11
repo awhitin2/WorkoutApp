@@ -116,7 +116,7 @@
 <EditRow>:
     pos_hint: {'top': 0}
     reps: int(rep_field.text) if rep_field.text else 0
-    weight: int(weight_field.text) if weight_field.text else 0
+    weight: float(weight_field.text) if weight_field.text else 0
 
     MDBoxLayout:
         adaptive_width: True

@@ -64,7 +64,9 @@ class DataCardCalc(DataCard):  #Composition over inheritance here?
     circle = BooleanProperty(False)
     unit = StringProperty()
     name = StringProperty()
-    start_date_str = StringProperty()
+    start_date_str = StringProperty() #What happens when there's no start date in the database?
+    #Probably need to add a has_start_date boolean and use that determine inclusion of a start button. 
+    #If has_start_date but start_date_str = '', then use today.
     left_container = ObjectProperty()
     right_container = ObjectProperty()
    

@@ -99,8 +99,6 @@ class GraphChip(MDChip):
                     instance_chip.color = self.theme_cls.primary_color
 
 
-
-
 class FigManager(Widget):
     __instance = None
     period = StringProperty()

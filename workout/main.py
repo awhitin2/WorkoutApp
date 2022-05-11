@@ -8,8 +8,10 @@ from screens.sessionscreen import SessionScreen
 from screens.datascreen import DataScreen
 from screens.schedulescreen import ScheduleScreen
 
-
 import backend.database as db
+
+# db.generate_sample_db_session_data()
+# db.initialize_sample_database_info()
 
 def write_sessions()-> None:
     from datetime import datetime
@@ -24,7 +26,7 @@ def write_sessions()-> None:
 
 class MainApp(MDApp): 
 
-    def on_scheduled(self, *args):
+    def on_scheduled(self, *args): #Still in use?
         self.scheduled_text = self.scheduled.text
 
     def build(self):

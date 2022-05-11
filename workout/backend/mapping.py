@@ -1,8 +1,20 @@
-from datetime import datetime
+from dataclasses import dataclass
+import datetime
 
 import matplotlib.dates as mpl_dates
 from backend import utils
 
+
+#rename db object mapping?
+
+@dataclass
+class DataCardData:
+    name: str
+    title: str
+    target: int = 3
+    start_date_str: str = datetime.date.today().isoformat()
+    unit: str = 'Sessions'
+    circle: bool = False
 
 class WorkoutOptionInfo:
 
@@ -50,7 +62,7 @@ class PlotData:
     def _parse_data(self, data: dict):
         for value in data.values():
             self.time_values.append(
-                datetime.strptime(value['date'], 
+                datetime.datetime.strptime(value['date'], 
                 '%Y-%m-%d').date())
             self.lift_values.append(value['weight'])
         self._set_date_format()

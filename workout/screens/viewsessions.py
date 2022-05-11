@@ -40,11 +40,8 @@ class ViewSessionsScreen(MDScreen):
 
 
     def _post_init(self, dt):
-        self.build() #Does this get called elswehere?
 
-    def build(self):
         sessions = db.get_sessions() #Check if db.get_sessions is used elsewhere. If not, maybe combine with the following step
-        
         if sessions:
             sessions = [
             {
@@ -108,7 +105,7 @@ class ViewSessionsScreen(MDScreen):
         db.delete_all_sessions()
         db.delete_all_completed_lifts()
         db.delete_all_graph_data()
-        self._close_dialog(self, key)
+        self._close_dialog(key)
         
 
 

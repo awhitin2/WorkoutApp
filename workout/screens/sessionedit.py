@@ -18,6 +18,7 @@ from kivymd.uix.textfield import MDTextField
 from backend import utils
 import backend.database as db
 
+### Need to account for adding new data to an empty ViewSessions screen
 
 class EditScreen(MDScreen):
     toolbar = ObjectProperty()
@@ -59,9 +60,6 @@ class EditScreen(MDScreen):
         if self.date_obj:
             self.date_str = utils.parse_date(self.date_obj, 'Day, Mon DD, YYYY')
 
-
-    # def add_lift(self):
-    #     print('Add lift')
 
     def show_add_lift_dialog(self):
         key = 'new_lift'
@@ -119,6 +117,8 @@ class EditScreen(MDScreen):
         if incomplete_found or empty_found:
             self._incomplete_dialog(incomplete_found, empty_found)
             return
+
+        
 
         self._log_lifts()
 
@@ -191,6 +191,7 @@ class EditScreen(MDScreen):
         self._log_lifts()
 
     def _log_lifts(self, instance = None):
+        
         db.update_session_date_workout(self.key, self.date_obj.isoformat(), self.workout)
         self.stored_date = self.date_obj
 
@@ -353,7 +354,7 @@ class EditableSessionCard(MDCardSwipe):
 
     def log_lift(self):
 
-        sets = [] #are these registered in reverse order? I think so
+        sets = []
         max = 0
         for row in self.rows:
             d = row.get_dict()
@@ -424,7 +425,7 @@ class EditAddLiftDialog(MDBoxLayout):
     def __init__(self, lifts: dict = {}, **kwargs):
         super().__init__(**kwargs)
         self.rows: list[EditAddLiftDialogRow] = []
-        for lift in db.get_lifts(): #Better way to do this?
+        for lift in db.get_lifts(): 
             if lift not in lifts:
                 self.scroll_box.add_widget(EditAddLiftDialogRow(lift))
     
