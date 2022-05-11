@@ -4,24 +4,11 @@ import random
 import itertools
 import json
 
-from dateutil.relativedelta import relativedelta
-
 from firebase_admin import credentials, initialize_app, db
 
 from backend import mapping
 from backend import utils
 
-workout_sessions_cache = {} #Cache to avoid multiple database lookups
-
-
-# delta = {
-#     ''''''
-#     'Week' : relativedelta(weeks=+1),
-#     'Month' : relativedelta(months=+1),
-#     '3 Months' : relativedelta(months=+3),
-#     '6 Months': relativedelta(months=+6),
-#     'Year' : relativedelta(years=+1),
-# }
 
 def connect_to_firebase():
         cred = credentials.Certificate("backend/firebase_admin.json")
@@ -94,9 +81,6 @@ def get_lifts()-> dict[str, bool]:
     """Returns all lifts entered by user for use in workout templates or workout sessions.
     Format = 'bench press': True """
     return db.reference("/lifts").get()
-
-def get_lifts(): #make sure the above one is owrking and then delete this one
-    return ['Rows', 'Bench Press', 'Squats', 'Deadlift', 'Weighted Pull-ups', 'Shoulder Press']
 
 def register_new_lift(lift):
     db.reference('/lifts').update({
@@ -182,25 +166,6 @@ def get_data_card_data(name:str) -> dict:
     data = db.reference('/data_cards/'+name).get()
     return mapping.DataCardData(**data)
 
-def get_sessions():
-    '''Return all workout sessions from cache if previously cached, 
-    else retrive from database and cache for future'''
-
-    if not workout_sessions_cache.get('all_sessions'):
-        workout_sessions_cache['all_sessions'] = db.reference('/sessions')\
-                                    .order_by_child('date').get()
-    return workout_sessions_cache['all_sessions']
-
-def get_sessions_since(start_date: str)->dict:
-    '''Return workout sessions since a start date from cache if previously 
-    cached, else retrive from database and cache for future'''
-
-    if not workout_sessions_cache.get(start_date):
-        workout_sessions_cache[start_date] = db.reference('/sessions')\
-                                    .order_by_child('date')\
-                                    .start_at(start_date).get()
-    return workout_sessions_cache[start_date]
-
 def update_data_card(name, key, value):
     db.reference('/data_cards/'+name).update({
             key : value
@@ -210,31 +175,22 @@ def set_data_card(name, d: dict)->None: #is this used?
     db.reference('/data_cards/'+name).set(d)
 
 ### GRAPH DATA ###
-#Probably can/should cache graph data
 
-def get_start(period): #is this used elswehere or just in get_plot_data below?
-    #can probably move to utils
-    delta = {
-        'Week' : relativedelta(weeks=+1),
-        'Month' : relativedelta(months=+1),
-        '3 Months' : relativedelta(months=+3),
-        '6 Months': relativedelta(months=+6),
-        'Year' : relativedelta(years=+1),
-    }
-    date = datetime.datetime.now()-delta[period]
-    date = utils.parse_date(date, 'YYYY-MM-DD')
-
-    return date
+#No need to cache here as the plots themselves are cached by the FigureManager.
+#i.e. these database methods are called only when new data is required
 
 def get_plot_initialization_info(): #This can probably just return the first options?
-    return('Bench Press', '3 Months')
+    lifts: dict = get_lifts()
+    lift: str = next(iter(lifts))
+    if lift:
+        return(lift, '3 Months')
 
 def get_plot_data(lift:str, period: str): #Change this to graph data
     if period == 'All Time':
         data: dict = db.reference("/graph_data/"+lift)\
                     .order_by_key().get()
     else:
-        start = get_start(period)
+        start = utils.get_start(period)
         data: dict = db.reference("/graph_data/"+lift)\
                     .order_by_child('date')\
                     .start_at(start).get()         
@@ -258,9 +214,32 @@ def delete_graph_data(key, lift):
 def delete_all_graph_data():
     db.reference(f"graph_data").delete()
 
-### Sessions ###
+
+### SESSIONS ###
+
+workout_sessions_cache = {} #Cache to avoid multiple database lookups
+
+def get_sessions():
+    '''Return all workout sessions from cache if previously cached, 
+    else retrive from database and cache for future'''
+
+    if not workout_sessions_cache.get('all_sessions'):
+        workout_sessions_cache['all_sessions'] = db.reference('/sessions')\
+                                    .order_by_child('date').get()
+    return workout_sessions_cache['all_sessions']
+
+def get_sessions_since(start_date: str)->dict:
+    '''Return workout sessions since a start date from cache if previously 
+    cached, else retrive from database and cache for future'''
+
+    if not workout_sessions_cache.get(start_date):
+        workout_sessions_cache[start_date] = db.reference('/sessions')\
+                                    .order_by_child('date')\
+                                    .start_at(start_date).get()
+    return workout_sessions_cache[start_date]
 
 def get_session_lifts(key:str)->list[str]:
+    '''Return a string of the lifts completed in a given session'''
     return [*db.reference(f"sessions/{key}/lifts").get()]
 
 def register_session(workout)->str: #register_new_session? log_new_session?
