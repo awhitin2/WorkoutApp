@@ -1,42 +1,11 @@
 import datetime
 import backend.database as db
-## all the datetime.datimes could probably be datetime.date
 ##Rename datacardcalculations
 
-# @dataclass
-# class DataCardData:
-#     name: str
-#     title: str
-#     target: int = 3
-#     start_date_str: str = date.today().isoformat()
-#     unit: str = 'Sessions'
-#     circle: bool = False
-    
 
-# data_card_data = {
-#     'this_week' : DataCardData(
-#         name = 'this_week',
-#         title = 'Sessions This Week',
-#         start_date_str='',
-#         unit = '',
-#         circle = True,
-#     ),
-#     'sessions_per_week' : DataCardData(
-#         name = 'sessions_per_week',
-#         title = 'Average Weekly Sessions',
-#         unit = '',
-#         circle = True,
-#     ),
-#     'current' : DataCardData(
-#         name = 'current',
-#         title = 'Current Streak',
-#         start_date_str = '',
-#     ),
-#     'longest' : DataCardData(
-#         name = 'longest',
-#         title = 'Longest Streak',
-#     ),
-# }
+cards_with_circle = ['sessions_per_week', 'this_week']
+cards_with_start = ['longest', 'sessions_per_week']
+cards_with_unit = ['current', 'longest']
 
 
 def calculate(data_card):

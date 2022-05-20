@@ -9,18 +9,25 @@ from backend import utils
 
 @dataclass
 class DataCardData:
-    name: str
-    title: str
-    target: int = 3
-    start_date_str: str = datetime.date.today().isoformat()
-    unit: str = 'Sessions'
-    circle: bool = False
+    target: int
+    has_start: bool
+    unit: str = ''
+    start_date_str: str = ''
+
+# class DataCardData:
+#     name: str
+#     title: str
+#     has_start_date: bool
+#     start_date_str: str = datetime.date.today().isoformat()
+#     target: int = 3
+#     unit: str = 'Sessions'
+#     circle: bool = False
 
 class WorkoutOptionInfo:
 
     def __init__(self, id: str, value: dict) -> None:
         self.id: str = id
-        self.title: str = value['name'] #change to title?
+        self.title: str = value['title']
         self.last_completed: str = utils.parse_date(value['last_completed'])
         self.lift_info_dict: dict[str, int] = value['lifts']
         self.lift_info: str = self._parse_lift_info(value['lifts'])
@@ -67,5 +74,5 @@ class PlotData:
             self.lift_values.append(value['weight'])
         self._set_date_format()
 
-    def _set_date_format(self): #modify formats depending on range?
+    def _set_date_format(self): 
         self.date_format = mpl_dates.DateFormatter('%b %d')   

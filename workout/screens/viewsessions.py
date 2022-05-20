@@ -2,6 +2,8 @@ from __future__ import annotations
 import datetime
 
 import functools
+
+from kivymd.app import MDApp
 from kivy.clock import Clock
 from kivymd.uix.card import MDCardSwipe
 
@@ -19,6 +21,7 @@ from kivy.properties import StringProperty, ObjectProperty, ListProperty
 import backend.database as db
 from backend import utils
 from screens.sessionedit import EditScreen
+
 
 
 class SessionInfo:
@@ -105,6 +108,8 @@ class ViewSessionsScreen(MDScreen):
         db.delete_all_sessions()
         db.delete_all_completed_lifts()
         db.delete_all_graph_data()
+        data_screen = MDApp.get_running_app().root.ids.data_screen
+        data_screen.clear_data()
         self._close_dialog(key)
         
 

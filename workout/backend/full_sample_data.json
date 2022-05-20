@@ -1,0 +1,4443 @@
+{
+  "completed_lifts": {
+    "Bench Press": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 135
+          },
+          {
+            "reps": 5,
+            "weight": 135
+          },
+          {
+            "reps": 5,
+            "weight": 135
+          }
+        ]
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          }
+        ]
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          }
+        ]
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          }
+        ]
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          },
+          {
+            "reps": 5,
+            "weight": 140
+          }
+        ]
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          }
+        ]
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          }
+        ]
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 145
+          },
+          {
+            "reps": 5,
+            "weight": 145
+          },
+          {
+            "reps": 5,
+            "weight": 145
+          }
+        ]
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          }
+        ]
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          }
+        ]
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          }
+        ]
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          }
+        ]
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          }
+        ]
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          }
+        ]
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 157.5
+          },
+          {
+            "reps": 5,
+            "weight": 157.5
+          },
+          {
+            "reps": 5,
+            "weight": 157.5
+          }
+        ]
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          }
+        ]
+      }
+    },
+    "Curls": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 20
+          },
+          {
+            "reps": 5,
+            "weight": 20
+          },
+          {
+            "reps": 5,
+            "weight": 20
+          }
+        ]
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          }
+        ]
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          }
+        ]
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          },
+          {
+            "reps": 5,
+            "weight": 25
+          }
+        ]
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 27.5
+          },
+          {
+            "reps": 5,
+            "weight": 27.5
+          },
+          {
+            "reps": 5,
+            "weight": 27.5
+          }
+        ]
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 30
+          },
+          {
+            "reps": 5,
+            "weight": 30
+          },
+          {
+            "reps": 5,
+            "weight": 30
+          }
+        ]
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          }
+        ]
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          }
+        ]
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          }
+        ]
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          },
+          {
+            "reps": 5,
+            "weight": 32.5
+          }
+        ]
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          }
+        ]
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          }
+        ]
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          }
+        ]
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          },
+          {
+            "reps": 5,
+            "weight": 35
+          }
+        ]
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 37.5
+          },
+          {
+            "reps": 5,
+            "weight": 37.5
+          },
+          {
+            "reps": 5,
+            "weight": 37.5
+          }
+        ]
+      }
+    },
+    "Deadlift": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 135
+          },
+          {
+            "reps": 5,
+            "weight": 135
+          },
+          {
+            "reps": 5,
+            "weight": 135
+          }
+        ]
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          }
+        ]
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          }
+        ]
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          }
+        ]
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          }
+        ]
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 165
+          },
+          {
+            "reps": 5,
+            "weight": 165
+          },
+          {
+            "reps": 5,
+            "weight": 165
+          }
+        ]
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 170
+          },
+          {
+            "reps": 5,
+            "weight": 170
+          },
+          {
+            "reps": 5,
+            "weight": 170
+          }
+        ]
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 172.5
+          },
+          {
+            "reps": 5,
+            "weight": 172.5
+          },
+          {
+            "reps": 5,
+            "weight": 172.5
+          }
+        ]
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          }
+        ]
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          }
+        ]
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          }
+        ]
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 187.5
+          },
+          {
+            "reps": 5,
+            "weight": 187.5
+          },
+          {
+            "reps": 5,
+            "weight": 187.5
+          }
+        ]
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 190
+          },
+          {
+            "reps": 5,
+            "weight": 190
+          },
+          {
+            "reps": 5,
+            "weight": 190
+          }
+        ]
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          }
+        ]
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 197.5
+          },
+          {
+            "reps": 5,
+            "weight": 197.5
+          },
+          {
+            "reps": 5,
+            "weight": 197.5
+          }
+        ]
+      }
+    },
+    "Incline Bench": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          }
+        ]
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          }
+        ]
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          }
+        ]
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          }
+        ]
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          }
+        ]
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          }
+        ]
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          }
+        ]
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          }
+        ]
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          }
+        ]
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          },
+          {
+            "reps": 5,
+            "weight": 120
+          }
+        ]
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 122.5
+          },
+          {
+            "reps": 5,
+            "weight": 122.5
+          },
+          {
+            "reps": 5,
+            "weight": 122.5
+          }
+        ]
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 122.5
+          },
+          {
+            "reps": 5,
+            "weight": 122.5
+          },
+          {
+            "reps": 5,
+            "weight": 122.5
+          }
+        ]
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          }
+        ]
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          }
+        ]
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          },
+          {
+            "reps": 5,
+            "weight": 125
+          }
+        ]
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 127.5
+          },
+          {
+            "reps": 5,
+            "weight": 127.5
+          },
+          {
+            "reps": 5,
+            "weight": 127.5
+          }
+        ]
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 130
+          },
+          {
+            "reps": 5,
+            "weight": 130
+          },
+          {
+            "reps": 5,
+            "weight": 130
+          }
+        ]
+      }
+    },
+    "Leg Press": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          },
+          {
+            "reps": 5,
+            "weight": 160
+          }
+        ]
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          }
+        ]
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          }
+        ]
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 167.5
+          },
+          {
+            "reps": 5,
+            "weight": 167.5
+          },
+          {
+            "reps": 5,
+            "weight": 167.5
+          }
+        ]
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 170
+          },
+          {
+            "reps": 5,
+            "weight": 170
+          },
+          {
+            "reps": 5,
+            "weight": 170
+          }
+        ]
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          }
+        ]
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          },
+          {
+            "reps": 5,
+            "weight": 175
+          }
+        ]
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          }
+        ]
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 180
+          },
+          {
+            "reps": 5,
+            "weight": 180
+          },
+          {
+            "reps": 5,
+            "weight": 180
+          }
+        ]
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          }
+        ]
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          }
+        ]
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 185
+          },
+          {
+            "reps": 5,
+            "weight": 185
+          },
+          {
+            "reps": 5,
+            "weight": 185
+          }
+        ]
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 190
+          },
+          {
+            "reps": 5,
+            "weight": 190
+          },
+          {
+            "reps": 5,
+            "weight": 190
+          }
+        ]
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          }
+        ]
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          }
+        ]
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 195
+          },
+          {
+            "reps": 5,
+            "weight": 195
+          },
+          {
+            "reps": 5,
+            "weight": 195
+          }
+        ]
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 197.5
+          },
+          {
+            "reps": 5,
+            "weight": 197.5
+          },
+          {
+            "reps": 5,
+            "weight": 197.5
+          }
+        ]
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 202.5
+          },
+          {
+            "reps": 5,
+            "weight": 202.5
+          },
+          {
+            "reps": 5,
+            "weight": 202.5
+          }
+        ]
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 205
+          },
+          {
+            "reps": 5,
+            "weight": 205
+          },
+          {
+            "reps": 5,
+            "weight": 205
+          }
+        ]
+      }
+    },
+    "Rows": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          }
+        ]
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          }
+        ]
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          }
+        ]
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          }
+        ]
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          }
+        ]
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          }
+        ]
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          }
+        ]
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          }
+        ]
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      }
+    },
+    "Shoulder Press": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          },
+          {
+            "reps": 5,
+            "weight": 90
+          }
+        ]
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          },
+          {
+            "reps": 5,
+            "weight": 92.5
+          }
+        ]
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          },
+          {
+            "reps": 5,
+            "weight": 95
+          }
+        ]
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          },
+          {
+            "reps": 5,
+            "weight": 97.5
+          }
+        ]
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          },
+          {
+            "reps": 5,
+            "weight": 100
+          }
+        ]
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          },
+          {
+            "reps": 5,
+            "weight": 102.5
+          }
+        ]
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          },
+          {
+            "reps": 5,
+            "weight": 105
+          }
+        ]
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          },
+          {
+            "reps": 5,
+            "weight": 107.5
+          }
+        ]
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          }
+        ]
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          },
+          {
+            "reps": 5,
+            "weight": 110
+          }
+        ]
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          }
+        ]
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          },
+          {
+            "reps": 5,
+            "weight": 112.5
+          }
+        ]
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          }
+        ]
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          }
+        ]
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          },
+          {
+            "reps": 5,
+            "weight": 115
+          }
+        ]
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          }
+        ]
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          },
+          {
+            "reps": 5,
+            "weight": 117.5
+          }
+        ]
+      }
+    },
+    "Squat": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 130
+          },
+          {
+            "reps": 5,
+            "weight": 130
+          },
+          {
+            "reps": 5,
+            "weight": 130
+          }
+        ]
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 132.5
+          },
+          {
+            "reps": 5,
+            "weight": 132.5
+          },
+          {
+            "reps": 5,
+            "weight": 132.5
+          }
+        ]
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 132.5
+          },
+          {
+            "reps": 5,
+            "weight": 132.5
+          },
+          {
+            "reps": 5,
+            "weight": 132.5
+          }
+        ]
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          },
+          {
+            "reps": 5,
+            "weight": 137.5
+          }
+        ]
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          },
+          {
+            "reps": 5,
+            "weight": 142.5
+          }
+        ]
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          },
+          {
+            "reps": 5,
+            "weight": 147.5
+          }
+        ]
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          },
+          {
+            "reps": 5,
+            "weight": 150
+          }
+        ]
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          },
+          {
+            "reps": 5,
+            "weight": 152.5
+          }
+        ]
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          },
+          {
+            "reps": 5,
+            "weight": 155
+          }
+        ]
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 157.5
+          },
+          {
+            "reps": 5,
+            "weight": 157.5
+          },
+          {
+            "reps": 5,
+            "weight": 157.5
+          }
+        ]
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          }
+        ]
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          },
+          {
+            "reps": 5,
+            "weight": 162.5
+          }
+        ]
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 165
+          },
+          {
+            "reps": 5,
+            "weight": 165
+          },
+          {
+            "reps": 5,
+            "weight": 165
+          }
+        ]
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 167.5
+          },
+          {
+            "reps": 5,
+            "weight": 167.5
+          },
+          {
+            "reps": 5,
+            "weight": 167.5
+          }
+        ]
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 172.5
+          },
+          {
+            "reps": 5,
+            "weight": 172.5
+          },
+          {
+            "reps": 5,
+            "weight": 172.5
+          }
+        ]
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          },
+          {
+            "reps": 5,
+            "weight": 177.5
+          }
+        ]
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 180
+          },
+          {
+            "reps": 5,
+            "weight": 180
+          },
+          {
+            "reps": 5,
+            "weight": 180
+          }
+        ]
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          },
+          {
+            "reps": 5,
+            "weight": 182.5
+          }
+        ]
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 187.5
+          },
+          {
+            "reps": 5,
+            "weight": 187.5
+          },
+          {
+            "reps": 5,
+            "weight": 187.5
+          }
+        ]
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          },
+          {
+            "reps": 5,
+            "weight": 192.5
+          }
+        ]
+      }
+    },
+    "Weighted Pull-ups": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 2.5
+          },
+          {
+            "reps": 5,
+            "weight": 2.5
+          },
+          {
+            "reps": 5,
+            "weight": 2.5
+          }
+        ]
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 2.5
+          },
+          {
+            "reps": 5,
+            "weight": 2.5
+          },
+          {
+            "reps": 5,
+            "weight": 2.5
+          }
+        ]
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 5
+          },
+          {
+            "reps": 5,
+            "weight": 5
+          },
+          {
+            "reps": 5,
+            "weight": 5
+          }
+        ]
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          }
+        ]
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          }
+        ]
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          },
+          {
+            "reps": 5,
+            "weight": 7.5
+          }
+        ]
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 10
+          },
+          {
+            "reps": 5,
+            "weight": 10
+          },
+          {
+            "reps": 5,
+            "weight": 10
+          }
+        ]
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 12.5
+          },
+          {
+            "reps": 5,
+            "weight": 12.5
+          },
+          {
+            "reps": 5,
+            "weight": 12.5
+          }
+        ]
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 12.5
+          },
+          {
+            "reps": 5,
+            "weight": 12.5
+          },
+          {
+            "reps": 5,
+            "weight": 12.5
+          }
+        ]
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          },
+          {
+            "reps": 5,
+            "weight": 15
+          }
+        ]
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 17.5
+          },
+          {
+            "reps": 5,
+            "weight": 17.5
+          },
+          {
+            "reps": 5,
+            "weight": 17.5
+          }
+        ]
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 20
+          },
+          {
+            "reps": 5,
+            "weight": 20
+          },
+          {
+            "reps": 5,
+            "weight": 20
+          }
+        ]
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "sets": [
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          },
+          {
+            "reps": 5,
+            "weight": 22.5
+          }
+        ]
+      }
+    }
+  },
+  "data_cards": {
+    "current": {
+      "has_start": false,
+      "target": 2,
+      "unit": "Sessions"
+    },
+    "longest": {
+      "has_start": true,
+      "start_date_str": "",
+      "target": 2,
+      "unit": "Sessions"
+    },
+    "sessions_per_week": {
+      "has_start": true,
+      "start_date_str": "",
+      "target": 2
+    },
+    "this_week": {
+      "has_start": false,
+      "target": 2
+    }
+  },
+  "graph_data": {
+    "Bench Press": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "weight": 135
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "weight": 137.5
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "weight": 140
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "weight": 140
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "weight": 140
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "weight": 142.5
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "weight": 142.5
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "weight": 145
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "weight": 147.5
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "weight": 147.5
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "weight": 147.5
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "weight": 150
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "weight": 150
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "weight": 152.5
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "weight": 152.5
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "weight": 152.5
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "weight": 155
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "weight": 157.5
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "weight": 160
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "weight": 162.5
+      }
+    },
+    "Curls": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "weight": 20
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "weight": 22.5
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "weight": 22.5
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "weight": 22.5
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "weight": 22.5
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "weight": 22.5
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "weight": 25
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "weight": 25
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "weight": 25
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "weight": 27.5
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "weight": 30
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "weight": 32.5
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "weight": 32.5
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "weight": 32.5
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "weight": 32.5
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "weight": 35
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "weight": 35
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "weight": 35
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "weight": 35
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "weight": 37.5
+      }
+    },
+    "Deadlift": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "weight": 135
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "weight": 137.5
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "weight": 142.5
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "weight": 147.5
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "weight": 147.5
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "weight": 152.5
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "weight": 155
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "weight": 160
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "weight": 160
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "weight": 160
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "weight": 165
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "weight": 170
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "weight": 172.5
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "weight": 175
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "weight": 177.5
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "weight": 182.5
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "weight": 187.5
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "weight": 190
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "weight": 192.5
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "weight": 197.5
+      }
+    },
+    "Incline Bench": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "weight": 100
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "weight": 100
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "weight": 102.5
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "weight": 105
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "weight": 107.5
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "weight": 110
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "weight": 112.5
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "weight": 115
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "weight": 117.5
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "weight": 120
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "weight": 120
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "weight": 120
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "weight": 120
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "weight": 122.5
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "weight": 122.5
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "weight": 125
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "weight": 125
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "weight": 125
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "weight": 127.5
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "weight": 130
+      }
+    },
+    "Leg Press": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "weight": 160
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "weight": 160
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "weight": 162.5
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "weight": 162.5
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "weight": 167.5
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "weight": 170
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "weight": 175
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "weight": 175
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "weight": 177.5
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "weight": 180
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "weight": 182.5
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "weight": 182.5
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "weight": 185
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "weight": 190
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "weight": 192.5
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "weight": 192.5
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "weight": 195
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "weight": 197.5
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "weight": 202.5
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "weight": 205
+      }
+    },
+    "Rows": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "weight": 90
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "weight": 90
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "weight": 92.5
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "weight": 92.5
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "weight": 95
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "weight": 95
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "weight": 95
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "weight": 95
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "weight": 95
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "weight": 97.5
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "weight": 97.5
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "weight": 100
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "weight": 100
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "weight": 100
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "weight": 100
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "weight": 102.5
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "weight": 105
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "weight": 107.5
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "weight": 107.5
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "weight": 107.5
+      }
+    },
+    "Shoulder Press": {
+      "-N1tI8fgN8QYznrdmbbd": {
+        "date": "2021-10-11",
+        "weight": 90
+      },
+      "-N1tI8hvFIQBuHYJYlW6": {
+        "date": "2021-10-22",
+        "weight": 92.5
+      },
+      "-N1tI8lhNgEoxrpVi_I3": {
+        "date": "2021-11-01",
+        "weight": 95
+      },
+      "-N1tI8nmRScCRhb9t-F4": {
+        "date": "2021-11-10",
+        "weight": 97.5
+      },
+      "-N1tI8qPO7_5ThIeU2M9": {
+        "date": "2021-11-20",
+        "weight": 100
+      },
+      "-N1tI8w-frfswuiUnYkr": {
+        "date": "2021-12-01",
+        "weight": 100
+      },
+      "-N1tI8y2BhnFrhywR2EZ": {
+        "date": "2021-12-09",
+        "weight": 100
+      },
+      "-N1tI90ekE1CVM-4_lcJ": {
+        "date": "2021-12-23",
+        "weight": 102.5
+      },
+      "-N1tI93e5My6_L5zBw15": {
+        "date": "2021-12-31",
+        "weight": 105
+      },
+      "-N1tI95pG9bV8L1jjet8": {
+        "date": "2022-01-09",
+        "weight": 107.5
+      },
+      "-N1tI9BdICn2cDg5OfPC": {
+        "date": "2022-01-18",
+        "weight": 107.5
+      },
+      "-N1tI9E8DXmV7RmUpkMV": {
+        "date": "2022-02-07",
+        "weight": 110
+      },
+      "-N1tI9IPyE399Xb0gs8u": {
+        "date": "2022-02-15",
+        "weight": 110
+      },
+      "-N1tI9L-Vqe0O2MmZmAA": {
+        "date": "2022-02-28",
+        "weight": 112.5
+      },
+      "-N1tI9RJxCx-uhEEAepD": {
+        "date": "2022-03-15",
+        "weight": 112.5
+      },
+      "-N1tI9Twy7efjLUxPThn": {
+        "date": "2022-03-25",
+        "weight": 115
+      },
+      "-N1tI9XFG1VkCJVG3gk6": {
+        "date": "2022-04-08",
+        "weight": 115
+      },
+      "-N1tI9Z7M9k_sCMM5gRs": {
+        "date": "2022-04-18",
+        "weight": 115
+      },
+      "-N1tI9_yBCwrA77GwyE3": {
+        "date": "2022-04-25",
+        "weight": 117.5
+      },
+      "-N1tI9g1eKnrzUApiHgS": {
+        "date": "2022-05-11",
+        "weight": 117.5
+      }
+    },
+    "Squat": {
+      "-N1tI8h6xFHG4dnOWtod": {
+        "date": "2021-10-18",
+        "weight": 130
+      },
+      "-N1tI8kkwaYkPGNULIe5": {
+        "date": "2021-10-28",
+        "weight": 132.5
+      },
+      "-N1tI8n9NTlUaR4A6MLh": {
+        "date": "2021-11-08",
+        "weight": 132.5
+      },
+      "-N1tI8pgCSnAwUOaY-AX": {
+        "date": "2021-11-16",
+        "weight": 137.5
+      },
+      "-N1tI8vRnKDdhRF-2q-Y": {
+        "date": "2021-11-29",
+        "weight": 142.5
+      },
+      "-N1tI8xNS07Hz7vO-GTD": {
+        "date": "2021-12-05",
+        "weight": 147.5
+      },
+      "-N1tI90-sNK3cRN72rR-": {
+        "date": "2021-12-19",
+        "weight": 150
+      },
+      "-N1tI934mfsdTM-pS3Gy": {
+        "date": "2021-12-29",
+        "weight": 152.5
+      },
+      "-N1tI95Dym1J-BYgiLSc": {
+        "date": "2022-01-05",
+        "weight": 155
+      },
+      "-N1tI9AzrrvySvFAVPiS": {
+        "date": "2022-01-14",
+        "weight": 157.5
+      },
+      "-N1tI9D5fHnbMDdwuvG8": {
+        "date": "2022-01-24",
+        "weight": 162.5
+      },
+      "-N1tI9Ghs9pH9FgsUXSX": {
+        "date": "2022-02-13",
+        "weight": 162.5
+      },
+      "-N1tI9KJjRHCaHnOmeeS": {
+        "date": "2022-02-24",
+        "weight": 165
+      },
+      "-N1tI9QfFv2YDtcIhF8R": {
+        "date": "2022-03-08",
+        "weight": 167.5
+      },
+      "-N1tI9SwUKQisSvGDy8F": {
+        "date": "2022-03-21",
+        "weight": 172.5
+      },
+      "-N1tI9W_aqExWPMtgHFF": {
+        "date": "2022-04-04",
+        "weight": 177.5
+      },
+      "-N1tI9YV1GxjnBWSxgX6": {
+        "date": "2022-04-13",
+        "weight": 180
+      },
+      "-N1tI9_NfCrmTIWcw_V3": {
+        "date": "2022-04-23",
+        "weight": 182.5
+      },
+      "-N1tI9bd7SS7D0fzapJf": {
+        "date": "2022-05-07",
+        "weight": 187.5
+      },
+      "-N1tI9hopWqiy51oBiyN": {
+        "date": "2022-05-15",
+        "weight": 192.5
+      }
+    },
+    "Weighted Pull-ups": {
+      "-N1tI8gR2ifFS8SS-KNd": {
+        "date": "2021-10-15",
+        "weight": 2.5
+      },
+      "-N1tI8iXvVD97AQZzPa3": {
+        "date": "2021-10-24",
+        "weight": 2.5
+      },
+      "-N1tI8mVtcOHDdvHpFq6": {
+        "date": "2021-11-06",
+        "weight": 5
+      },
+      "-N1tI8okY4U4u_PTa3Oo": {
+        "date": "2021-11-12",
+        "weight": 7.5
+      },
+      "-N1tI8uVwRYC3k5vNoUr": {
+        "date": "2021-11-27",
+        "weight": 7.5
+      },
+      "-N1tI8wfmn2-xNQ75DDi": {
+        "date": "2021-12-03",
+        "weight": 7.5
+      },
+      "-N1tI8ywNPnoeBR0liX0": {
+        "date": "2021-12-17",
+        "weight": 10
+      },
+      "-N1tI91IeQu6l14SUS26": {
+        "date": "2021-12-26",
+        "weight": 12.5
+      },
+      "-N1tI94HjD6OGxgrzpqQ": {
+        "date": "2022-01-03",
+        "weight": 12.5
+      },
+      "-N1tI99wOyqmOV_h_HkA": {
+        "date": "2022-01-12",
+        "weight": 15
+      },
+      "-N1tI9CSyZJZ_Xi7fYgr": {
+        "date": "2022-01-21",
+        "weight": 15
+      },
+      "-N1tI9G7AgVySF100u4b": {
+        "date": "2022-02-09",
+        "weight": 15
+      },
+      "-N1tI9Jh8oIUnlJ-tBKM": {
+        "date": "2022-02-20",
+        "weight": 15
+      },
+      "-N1tI9M5EzS23gM00p-f": {
+        "date": "2022-03-04",
+        "weight": 15
+      },
+      "-N1tI9SJn9B96g-5Usu5": {
+        "date": "2022-03-18",
+        "weight": 15
+      },
+      "-N1tI9UjcXFhJ6LVcUke": {
+        "date": "2022-04-01",
+        "weight": 15
+      },
+      "-N1tI9XsNO4Xzg8ARLl3": {
+        "date": "2022-04-11",
+        "weight": 15
+      },
+      "-N1tI9Zj8Od5sGRnVhhG": {
+        "date": "2022-04-21",
+        "weight": 17.5
+      },
+      "-N1tI9aadmFAYP42GGcT": {
+        "date": "2022-04-29",
+        "weight": 20
+      },
+      "-N1tI9h20QZ9dfs9Oqxd": {
+        "date": "2022-05-13",
+        "weight": 22.5
+      }
+    }
+  },
+  "lifts": {
+    "Bench Press": true,
+    "Curls": true,
+    "Deadlift": true,
+    "Incline Bench": true,
+    "Leg Press": true,
+    "Rows": true,
+    "Shoulder Press": true,
+    "Squat": true,
+    "Weighted Pull-ups": true
+  },
+  "schedule": {
+    "next": 0,
+    "order": [
+      "Push",
+      "Pull",
+      "Legs",
+      "Abs"
+    ]
+  },
+  "sessions": {
+    "-N1tI8fgN8QYznrdmbbd": {
+      "date": "2021-10-11",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8gR2ifFS8SS-KNd": {
+      "date": "2021-10-15",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8h6xFHG4dnOWtod": {
+      "date": "2021-10-18",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8hvFIQBuHYJYlW6": {
+      "date": "2021-10-22",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8iXvVD97AQZzPa3": {
+      "date": "2021-10-24",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8kkwaYkPGNULIe5": {
+      "date": "2021-10-28",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8lhNgEoxrpVi_I3": {
+      "date": "2021-11-01",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8mVtcOHDdvHpFq6": {
+      "date": "2021-11-06",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8n9NTlUaR4A6MLh": {
+      "date": "2021-11-08",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8nmRScCRhb9t-F4": {
+      "date": "2021-11-10",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8okY4U4u_PTa3Oo": {
+      "date": "2021-11-12",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8pgCSnAwUOaY-AX": {
+      "date": "2021-11-16",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8qPO7_5ThIeU2M9": {
+      "date": "2021-11-20",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8uVwRYC3k5vNoUr": {
+      "date": "2021-11-27",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8vRnKDdhRF-2q-Y": {
+      "date": "2021-11-29",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8w-frfswuiUnYkr": {
+      "date": "2021-12-01",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8wfmn2-xNQ75DDi": {
+      "date": "2021-12-03",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI8xNS07Hz7vO-GTD": {
+      "date": "2021-12-05",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI8y2BhnFrhywR2EZ": {
+      "date": "2021-12-09",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI8ywNPnoeBR0liX0": {
+      "date": "2021-12-17",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI90-sNK3cRN72rR-": {
+      "date": "2021-12-19",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI90ekE1CVM-4_lcJ": {
+      "date": "2021-12-23",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI91IeQu6l14SUS26": {
+      "date": "2021-12-26",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI934mfsdTM-pS3Gy": {
+      "date": "2021-12-29",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI93e5My6_L5zBw15": {
+      "date": "2021-12-31",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI94HjD6OGxgrzpqQ": {
+      "date": "2022-01-03",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI95Dym1J-BYgiLSc": {
+      "date": "2022-01-05",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI95pG9bV8L1jjet8": {
+      "date": "2022-01-09",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI99wOyqmOV_h_HkA": {
+      "date": "2022-01-12",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9AzrrvySvFAVPiS": {
+      "date": "2022-01-14",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9BdICn2cDg5OfPC": {
+      "date": "2022-01-18",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9CSyZJZ_Xi7fYgr": {
+      "date": "2022-01-21",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9D5fHnbMDdwuvG8": {
+      "date": "2022-01-24",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9E8DXmV7RmUpkMV": {
+      "date": "2022-02-07",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9G7AgVySF100u4b": {
+      "date": "2022-02-09",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9Ghs9pH9FgsUXSX": {
+      "date": "2022-02-13",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9IPyE399Xb0gs8u": {
+      "date": "2022-02-15",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9Jh8oIUnlJ-tBKM": {
+      "date": "2022-02-20",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9KJjRHCaHnOmeeS": {
+      "date": "2022-02-24",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9L-Vqe0O2MmZmAA": {
+      "date": "2022-02-28",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9M5EzS23gM00p-f": {
+      "date": "2022-03-04",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9QfFv2YDtcIhF8R": {
+      "date": "2022-03-08",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9RJxCx-uhEEAepD": {
+      "date": "2022-03-15",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9SJn9B96g-5Usu5": {
+      "date": "2022-03-18",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9SwUKQisSvGDy8F": {
+      "date": "2022-03-21",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9Twy7efjLUxPThn": {
+      "date": "2022-03-25",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9UjcXFhJ6LVcUke": {
+      "date": "2022-04-01",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9W_aqExWPMtgHFF": {
+      "date": "2022-04-04",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9XFG1VkCJVG3gk6": {
+      "date": "2022-04-08",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9XsNO4Xzg8ARLl3": {
+      "date": "2022-04-11",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9YV1GxjnBWSxgX6": {
+      "date": "2022-04-13",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9Z7M9k_sCMM5gRs": {
+      "date": "2022-04-18",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9Zj8Od5sGRnVhhG": {
+      "date": "2022-04-21",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9_NfCrmTIWcw_V3": {
+      "date": "2022-04-23",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9_yBCwrA77GwyE3": {
+      "date": "2022-04-25",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9aadmFAYP42GGcT": {
+      "date": "2022-04-29",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9bd7SS7D0fzapJf": {
+      "date": "2022-05-07",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    },
+    "-N1tI9g1eKnrzUApiHgS": {
+      "date": "2022-05-11",
+      "lifts": {
+        "Bench Press": true,
+        "Incline Bench": true,
+        "Shoulder Press": true
+      },
+      "workout": "Push"
+    },
+    "-N1tI9h20QZ9dfs9Oqxd": {
+      "date": "2022-05-13",
+      "lifts": {
+        "Curls": true,
+        "Rows": true,
+        "Weighted Pull-ups": true
+      },
+      "workout": "Pull"
+    },
+    "-N1tI9hopWqiy51oBiyN": {
+      "date": "2022-05-15",
+      "lifts": {
+        "Deadlift": true,
+        "Leg Press": true,
+        "Squat": true
+      },
+      "workout": "Legs"
+    }
+  },
+  "workout_templates": {
+    "-MrOHx7tHMWwcwf90Nbl": {
+      "last_completed": "2022-05-11",
+      "lifts": {
+        "Bench Press": 3,
+        "Incline Bench": 3,
+        "Shoulder Press": 3
+      },
+      "title": "Push"
+    },
+    "-MrPC_9n70HLxAJhIFJv": {
+      "last_completed": "Never",
+      "lifts": {
+        "Crunches": 3,
+        "Leg Raises": 3
+      },
+      "title": "Abs"
+    },
+    "-N-QEwkE0djnE0IWDMNC": {
+      "last_completed": "2022-05-13",
+      "lifts": {
+        "Curls": 3,
+        "Rows": 3,
+        "Weighted Pull-ups": 3
+      },
+      "title": "Pull"
+    },
+    "-N0WYnfhHenDNGbr9oyN": {
+      "last_completed": "2022-05-15",
+      "lifts": {
+        "Deadlift": 3,
+        "Leg Press": 3,
+        "Squat": 3
+      },
+      "title": "Legs"
+    }
+  }
+}

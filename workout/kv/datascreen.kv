@@ -3,6 +3,7 @@
 <DataScreen>:
 
     fig_display: fig_display
+    card_layout: data_card_layout
 
     MDToolbar:
         title: "Data"
@@ -39,15 +40,19 @@
 
                 DataCardCalc:
                     name: 'this_week'
+                    title: 'Sessions This Week'
 
                 DataCardCalc:
                     name: 'sessions_per_week'
+                    title: 'Average Weekly Sessions'
 
                 DataCardCalc:
                     name: 'current'
+                    title: 'Current Streak'
 
                 DataCardCalc:
                     name: 'longest'
+                    title: 'Longest Streak'
 
                 DataCardButton:
                     title: 'View/edit sessions'
@@ -143,13 +148,15 @@
 
 <Calculation>:
 
+
     MDLabel:
+
         text: str(root.base_card.calculation)
-        size: self.texture_size
         font_style: "Button"
         halign: "center"
-        font_size: sp(50)
+        font_size: '50sp' if len(self.text) == 1 else '40sp'
         center: root.center
+
 
 <CircleCalculation>:
     
@@ -167,11 +174,4 @@
             circle:
                 (self.center_x, self.center_y, min(self.width, self.height)
                 / 2, root.angle_start, root.angle_end)
-            
-    MDLabel:
-        text: str(root.base_card.calculation)
-        font_style: "Button"
-        halign: "center"
-        font_size: sp(50)
-        center: root.center
-
+        

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+import datetime
 
 from kivy.clock import Clock
 from kivy.metrics import dp
@@ -18,6 +18,7 @@ from kivymd.uix.picker import MDDatePicker
 from kivymd.uix.screen import MDScreen
 from kivy.uix.togglebutton import ToggleButtonBehavior
 from kivy.uix.widget import Widget
+from numpy import isin
 
 from backend import colors
 import backend.database as db
@@ -29,6 +30,7 @@ from backend import figmanager
 
 class DataScreen(MDScreen):
     fig_display = ObjectProperty()
+    card_layout = ObjectProperty()
 
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -37,6 +39,11 @@ class DataScreen(MDScreen):
     def _post_init(self, dt):
         mngr = figmanager.manager
         mngr.register_display(self.fig_display)
+
+    def clear_data(self):
+          for card in self.card_layout.children:
+            if isinstance(card, DataCardCalc):
+                card.calculation = 0
 
 
 class DataCard(MDCard):
@@ -56,41 +63,41 @@ class DataCardButton(DataCard):
         self.left_container.add_widget(DataLabel(text = self.title))
         self.right_container.add_widget(DataButton(screen=self.screen))
 
-class DataCardCalc(DataCard):  #Composition over inheritance here?
+class DataCardCalc(DataCard):  
     """Data display card with calculation"""
 
     target = NumericProperty()
     title = StringProperty()
     calculation = NumericProperty()
-    circle = BooleanProperty(False)
+    circle = BooleanProperty()
     unit = StringProperty()
     name = StringProperty()
-    start_date_str = StringProperty() #What happens when there's no start date in the database?
-    #Probably need to add a has_start_date boolean and use that determine inclusion of a start button. 
-    #If has_start_date but start_date_str = '', then use today.
+    has_start = BooleanProperty()
+    start_date_str = StringProperty() 
     left_container = ObjectProperty()
     right_container = ObjectProperty()
    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        Clock.schedule_once(self._finish_init)
+        Clock.schedule_once(self._post_init)
         
-    def _finish_init(self, dt):
-        data = db.get_data_card_data(self.name)
+    def _post_init(self, dt):
+        card_data = db.get_data_card_data(self.name)
+        for key, value in vars(card_data).items():
+            setattr(self, key, value)
 
-        if data.start_date_str:
-            data.start_date = datetime.strptime(data.start_date_str, 
-                                                "%Y-%m-%d").date()
-        for key, value in vars(data).items():
-            if value:
-                setattr(self, key, value)
+        if self.has_start:
 
+            if not self.start_date_str:
+                self.start_date_str = datetime.date.today().isoformat()
+            self.start_date=datetime.datetime.strptime(self.start_date_str,"%Y-%m-%d").date()
+        
         self.calculate()
         self.default_view = DataLabel(text = self.title)
         self.edit_view = EditView(base_card = self)
         self.left_container.add_widget(self.default_view, index=1)
 
-        if self.circle: 
+        if self.name in datacarddata.cards_with_circle: 
             self.calc_widget = CircleCalculation(base_card = self)
         else: 
             self.calc_widget = Calculation(base_card = self)
@@ -105,8 +112,8 @@ class DataCardCalc(DataCard):  #Composition over inheritance here?
     def on_calculation(self, *args):
         print('calculated')
 
-    def __repr__(self):
-        return "{}(name={}, title={})".format(self.__class__.__name__, self.name, self.title)
+    # def __repr__(self):
+    #     return "{}(name={}, title={})".format(self.__class__.__name__, self.name, self.title)
 
 
 class DataLabel(Label):
@@ -129,7 +136,7 @@ class EditView(MDBoxLayout):
         Clock.schedule_once(self._post_init, 0)
 
     def _post_init(self, dt):
-        if self.base_card.start_date_str:
+        if self.base_card.has_start:
             self.add_starting_widget()
         if self.base_card.unit:
             self.add_unit_widget()

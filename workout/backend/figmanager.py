@@ -22,11 +22,9 @@ class FigManager(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.displays: list[FigDisplay] = []
-        self.figs = {}
+        self.figs: dict[tuple] = {}
         self.lift, self.period = db.get_plot_initialization_info()
         self.plot = ()
-        # self.bind(period = self.on_period)
-        # self.bind(lift = self.on_lift)
         self.bind(plot = self.on_plot)
         self.set_fig(self.lift, self.period)
 
@@ -50,7 +48,7 @@ class FigManager(Widget):
 
     def on_plot(self, *args):
         for disp in self.displays:
-                disp.set_display()
+            disp.set_display()
 
 class FigDisplay(ButtonBehavior, MDBoxLayout):
     
@@ -67,7 +65,7 @@ class FigDisplay(ButtonBehavior, MDBoxLayout):
 class Figure:
     next = 0
 
-    def __init__(self, lift, period) -> int:
+    def __init__(self, lift, period):
         self.lift = lift
         self.period = period
         Figure.next += 1
