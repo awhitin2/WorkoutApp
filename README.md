@@ -1,2 +1,2 @@
 # WorkoutApp
-Mobile workout tracking app 
+Mobile app to track workouts and log lifts
