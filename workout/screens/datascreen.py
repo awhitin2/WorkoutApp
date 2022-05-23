@@ -118,13 +118,6 @@ class DataCardCalc(DataCard):
         else:
             self.calculation = datacarddata.calc_functions[self.name](self)
 
-    def on_calculation(self, *args):
-        print('calculated')
-
-    # def __repr__(self):
-    #     return "{}(name={}, title={})".format(self.__class__.__name__, self.name, self.title)
-
-
 class DataLabel(Label):
     """DataCard default view showing only the title"""
     

@@ -18,8 +18,8 @@ def calculate(data_card):
 def this_week(data_card)-> int:
     """Calculate the number of sessions completed this week"""
 
-    iso_cal = datetime.datetime.now().isocalendar()
-    first_of_week_str = datetime.datetime.fromisocalendar(year = iso_cal.year, week = iso_cal.week, day = 1)\
+    iso_cal = datetime.date.today().isocalendar()
+    first_of_week_str = datetime.date.fromisocalendar(year = iso_cal.year, week = iso_cal.week, day = 1)\
                                 .isoformat()
     
     result = len(db.get_sessions_since(first_of_week_str))
@@ -30,9 +30,9 @@ def current_sessions(data_card)-> int:
     """Calculate current streak of consecutive sessions where weekly target was reached each consecutive week"""
     sessions = db.get_sessions()
     if sessions:
-        dates = [datetime.datetime.fromisoformat(v['date']).isocalendar() for k,v in sessions.items()]
+        dates = [datetime.date.fromisoformat(v['date']).isocalendar() for k,v in sessions.items()]
         dates.reverse()
-        this_week = datetime.datetime.today().isocalendar()[:2]
+        this_week = datetime.date.today().isocalendar()[:2]
         streak = 0
         current_streak = 0
         current = None
@@ -59,9 +59,9 @@ def current_weeks(data_card)-> int:
     """Calculate current streak of consecutive weeks where weekly target was reached each consecutive week"""
     sessions = db.get_sessions()
     if sessions:
-        dates = [datetime.datetime.fromisoformat(v['date']).isocalendar() for k,v in sessions.items()]
+        dates = [datetime.date.fromisoformat(v['date']).isocalendar() for k,v in sessions.items()]
         dates.reverse()
-        this_week = datetime.datetime.today().isocalendar()
+        this_week = datetime.date.today().isocalendar()
         current_streak = 0
         week_streak = 0
         current_week = None
@@ -89,7 +89,7 @@ def current_weeks(data_card)-> int:
 def sessions_per_week(data_card)-> int:
     '''Calculate the average number of sessions per week since start date'''
     start_date = data_card.start_date_str
-    weeks = (datetime.datetime.today()-datetime.datetime.fromisoformat(start_date)).days//7
+    weeks = (datetime.date.today()-datetime.date.fromisoformat(start_date)).days//7
     if weeks == 0: return 0
 
     num_sessions = len(db.get_sessions_since(start_date))
@@ -106,7 +106,7 @@ def highest_weeks(data_card)-> int:  #This could maybe be improved?
         current_streak = 0
         current_week = None
         for _, v in sessions.items():
-            iso_cal = datetime.datetime.fromisoformat(v['date']).isocalendar()
+            iso_cal = datetime.date.fromisoformat(v['date']).isocalendar()
             if not current_week: 
                 current_week = iso_cal
             if iso_cal[:2] == current_week[:2]: 
@@ -135,7 +135,7 @@ def highest_sessions(data_card)-> int:  #This could maybe be improved?
     this_week = 0
     current_week = None
     for _, v in sessions.items():
-        iso_cal = datetime.datetime.fromisoformat(v['date']).isocalendar()
+        iso_cal = datetime.date.fromisoformat(v['date']).isocalendar()
         if not current_week: 
             current_week = iso_cal
         if iso_cal[:2] == current_week[:2]: 
