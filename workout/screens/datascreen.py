@@ -1,8 +1,7 @@
-#Data cards are not taking newwly logged sessions into consideration
-
 from __future__ import annotations
 
 import datetime
+from xmlrpc.client import Boolean
 
 from kivy.clock import Clock
 from kivy.metrics import dp
@@ -18,7 +17,7 @@ from kivymd.uix.picker import MDDatePicker
 from kivymd.uix.screen import MDScreen
 from kivy.uix.togglebutton import ToggleButtonBehavior
 from kivy.uix.widget import Widget
-from numpy import isin
+
 
 from backend import colors
 import backend.database as db
@@ -31,6 +30,7 @@ from backend import figmanager
 class DataScreen(MDScreen):
     fig_display = ObjectProperty()
     card_layout = ObjectProperty()
+    needs_recalculating = BooleanProperty(False)
 
     def __init__(self, **kw):
         super().__init__(**kw)
@@ -40,10 +40,19 @@ class DataScreen(MDScreen):
         mngr = figmanager.manager
         mngr.register_display(self.fig_display)
 
+    def on_pre_enter(self, *args):
+        if self.needs_recalculating == True:
+            self._refresh_calculations()
+
     def clear_data(self):
           for card in self.card_layout.children:
             if isinstance(card, DataCardCalc):
                 card.calculation = 0
+
+    def _refresh_calculations(self):
+        for card in self.card_layout.children:
+            if isinstance(card, DataCardCalc):
+                card.calculate()
 
 
 class DataCard(MDCard):

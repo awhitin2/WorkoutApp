@@ -18,7 +18,6 @@ from kivymd.uix.textfield import MDTextField
 from backend import utils
 import backend.database as db
 
-### Need to account for adding new data to an empty ViewSessions screen
 
 class EditScreen(MDScreen):
     toolbar = ObjectProperty()
@@ -326,7 +325,7 @@ class EditableSessionCard(MDCardSwipe):
 
         Clock.schedule_once(self._post_init)
 
-    def _post_init(self, dt):
+    def _post_init(self, dt): #Recursive parent finder here
         self.edit_screen = self.parent.parent.parent.parent
 
     def _add_set(self):

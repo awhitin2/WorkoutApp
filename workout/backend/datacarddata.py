@@ -7,6 +7,7 @@ cards_with_circle = ['sessions_per_week', 'this_week']
 cards_with_start = ['longest', 'sessions_per_week']
 cards_with_unit = ['current', 'longest']
 
+calc_results_cache = {}
 
 def calculate(data_card):
     if data_card.unit:
@@ -16,10 +17,14 @@ def calculate(data_card):
 
 def this_week(data_card)-> int:
     """Calculate the number of sessions completed this week"""
+
     iso_cal = datetime.datetime.now().isocalendar()
     first_of_week_str = datetime.datetime.fromisocalendar(year = iso_cal.year, week = iso_cal.week, day = 1)\
                                 .isoformat()
-    return len(db.get_sessions_since(first_of_week_str))
+    
+    result = len(db.get_sessions_since(first_of_week_str))
+    
+    return result
 
 def current_sessions(data_card)-> int:
     """Calculate current streak of consecutive sessions where weekly target was reached each consecutive week"""

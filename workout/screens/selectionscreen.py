@@ -8,8 +8,8 @@ from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.screen import MDScreen
-from screens.sessionscreen import SessionScreen
 
+from screens.sessionscreen import SessionScreen
 from backend import mapping
 from backend.schedulemanager import schedule_manager
 
@@ -22,7 +22,8 @@ class SelectionScreen(MDScreen):
     def __init__(self, **kw):
         super().__init__(**kw)
         self.dialogs = {}
-        self.option_info = [] #to compare new templates against to prevent creating identical workouts
+        #to compare new templates against to prevent creating identical workouts
+        self.option_info = []   
         Clock.schedule_once(self._post_init)
      
     def _post_init(self, dt):       
@@ -33,8 +34,8 @@ class SelectionScreen(MDScreen):
                 self.options_layout.add_widget(WorkoutOptionCard(option))
             else:
                 next_option = option
-        #Wrap in try except
-        self.options_layout.add_widget(WorkoutOptionCard(next_option), len(self.options_layout.children))
+        if next_option:
+            self.options_layout.add_widget(WorkoutOptionCard(next_option), len(self.options_layout.children))
         
 
     def show_new_workout_dialog(self):

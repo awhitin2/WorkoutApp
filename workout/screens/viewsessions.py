@@ -16,7 +16,7 @@ from kivymd.uix.button import MDFlatButton
 
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.picker import MDDatePicker
-from kivy.properties import StringProperty, ObjectProperty, ListProperty
+from kivy.properties import StringProperty, ObjectProperty, BooleanProperty
 
 import backend.database as db
 from backend import utils
@@ -35,6 +35,7 @@ class ViewSessionsScreen(MDScreen):
     recycle_view = ObjectProperty()
     box = ObjectProperty()
     rv = ObjectProperty()
+    needs_recalculating = BooleanProperty()
 
     def __init__(self,  **kw):
         super().__init__(**kw)
@@ -43,8 +44,8 @@ class ViewSessionsScreen(MDScreen):
 
 
     def _post_init(self, dt):
-
-        sessions = db.get_sessions() #Check if db.get_sessions is used elsewhere. If not, maybe combine with the following step
+        
+        sessions = db.get_sessions()
         if sessions:
             sessions = [
             {
@@ -78,6 +79,8 @@ class ViewSessionsScreen(MDScreen):
                 ))
         
         app.change_screen(manager, screen_name = key)
+        data_screen = MDApp.get_running_app().root.ids.data_screen
+        data_screen.needs_recalculating = True
 
     def confirm_delete_dialog(self):
         key = 'confirm'
@@ -177,7 +180,6 @@ class SessionCard(RecycleDataViewBehavior, MDCardSwipe):
 
     def _delete_session_info(self, *args):
 
-        # self.parent.remove_widget(self)
         del self.parent.parent.data[self.index]
         self._close_dialog('confirm')
         db.delete_session(self.key)
@@ -185,9 +187,7 @@ class SessionCard(RecycleDataViewBehavior, MDCardSwipe):
         for lift in self.lifts:
             db.delete_completed_lift(self.key, lift)
             db.delete_graph_data(self.key, lift)
-        
-    
-# class RV(RecycleView):
-#     def __init__(self, data, **kwargs):
-#         super(RV, self).__init__(**kwargs)
-#         self.data = data
+
+        data_screen = MDApp.get_running_app().root.ids.data_screen
+        data_screen.needs_recalculating = True
+

@@ -18,8 +18,8 @@ from kivymd.uix.stacklayout import MDStackLayout
 from kivy.uix.stacklayout import StackLayout
 
 from backend import mapping 
+
 from backend.schedulemanager import schedule_manager
-import backend.mapping as mapping
 import backend.database as db
 
 
@@ -364,6 +364,9 @@ class InputLayout(StackLayout):
         record_layout = self.parent.parent.record_layout
         record_layout.stack.clear_widgets()
         record_layout.set_records()
+
+        data_screen = MDApp.get_running_app().root.ids.data_screen
+        data_screen.needs_recalculating = True
 
         self._success_dialog()
 

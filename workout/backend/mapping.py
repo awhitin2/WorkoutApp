@@ -5,8 +5,6 @@ import matplotlib.dates as mpl_dates
 from backend import utils
 
 
-#rename db object mapping?
-
 @dataclass
 class DataCardData:
     target: int
@@ -14,14 +12,6 @@ class DataCardData:
     unit: str = ''
     start_date_str: str = ''
 
-# class DataCardData:
-#     name: str
-#     title: str
-#     has_start_date: bool
-#     start_date_str: str = datetime.date.today().isoformat()
-#     target: int = 3
-#     unit: str = 'Sessions'
-#     circle: bool = False
 
 class WorkoutOptionInfo:
 

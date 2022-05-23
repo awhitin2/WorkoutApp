@@ -28,7 +28,7 @@ def get_scheduled_index(): #Still in use?
 def get_schedule()->list[str]: #Still in use?
     return db.reference('schedule/order').get()
 
-def get_schedule_data()->dict: #Still in use?
+def get_schedule_data()->dict: #IN USE
     return db.reference('schedule').get()
 
 def update_next_index(next:int)->None:
@@ -40,13 +40,10 @@ def set_schedule(schedule: dict)->None:
 
 ### WORKOUT TEMPLATES ###
 
-def get_workout_templates() -> list[mapping.WorkoutOptionInfo]:
+def get_workout_templates() -> list[mapping.WorkoutOptionInfo]: #in use
     data: dict = db.reference('workout_templates')\
         .order_by_child('last_completed').get()
     workout_options = [mapping.WorkoutOptionInfo(k, v) for k, v in data.items()]
-    # workout_options = []
-    # for key, value in data.items():
-    #     workout_options.append(mapping.WorkoutOptionInfo(key, value))
     return workout_options
 
 def get_latest_workout_template() -> mapping.WorkoutOptionInfo:
@@ -79,9 +76,8 @@ def delete_template(id: str):
 
 ### LIFTS ###
 
-def get_lifts()-> dict[str, bool]:
-    """Returns all lifts entered by user for use in workout templates or workout sessions.
-    Format = 'bench press': True """
+def get_lifts()-> dict[str, bool]: #IN USE
+    """Returns all stored lifts"""
     return db.reference("/lifts").get()
 
 def register_new_lift(lift):
@@ -181,7 +177,7 @@ def set_data_card(name, d: dict)->None: #is this used?
 #No need to cache here as the plots themselves are cached by the FigureManager.
 #i.e. these database methods are called only when new data is required
 
-def get_plot_initialization_info():
+def get_plot_initialization_info() -> Union[tuple, None]: #IN USE
     lifts: dict = get_lifts()
     if lifts:
         lift: str = next(iter(lifts))
@@ -221,7 +217,12 @@ def delete_all_graph_data():
 
 workout_sessions_cache = {} 
 
-def get_sessions(cache: bool = True):
+def clear_sessions_cache() -> None:
+   global workout_sessions_cache 
+   workout_sessions_cache = {} 
+
+
+def get_sessions(cache: bool = True): #IN USE
     '''Return all workout sessions from cache if previously cached, 
     else retrive from database and (if cache == True) cache for future'''
 

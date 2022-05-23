@@ -18,7 +18,6 @@ class MainApp(MDApp):
         Window.size = (375, 740)
         return Builder.load_file("kv/main.kv")
 
-    #Set screen managers as objects directly rather than referencing via id
     def change_screen(self, manager: ScreenManager, screen_name: str, direction:str = 'left'):
         manager.transition.direction = direction
         manager.current = screen_name
