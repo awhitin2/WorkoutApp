@@ -58,3 +58,10 @@ Screenshots coming
     - Add/delete lifts
     - Add/delete/edit any of the rep/weight info
 
+## Schedule Screen
+
+- Allows user to set a schedule using any of the existing workouts
+- Drag-and-drop functionality to rearrange workouts
+- Swipe-to-delete functionailty to remove workouts
+- User is able to indicate the next scheduled workout, which will float to the top of the Selection Screen
+- The next scheduled workout is outlined in orange and updates when the workout is completed in the Session Screen
