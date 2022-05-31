@@ -1,34 +1,25 @@
 
 import datetime
-import random
-import itertools
 import json
-from typing import Union
+import random
+from typing import Union, Tuple
 
-from firebase_admin import credentials, initialize_app, db
+from firebase_admin import db
 
 from backend import mapping
 from backend import utils
 from backend import datacarddata
 
-
-def connect_to_firebase():
-        cred = credentials.Certificate("backend/firebase_admin.json")
-        initialize_app(cred, {
-            'databaseURL': 'https://workout-da0a4-default-rtdb.firebaseio.com/'
-        })   
-
-connect_to_firebase()
-
 ### SCHEDULE ###
 
-def get_scheduled_index(): #Still in use?
-    return db.reference('schedule/next').get()
 
-def get_schedule()->list[str]: #Still in use?
+def get_schedule()->list[str]: 
     return db.reference('schedule/order').get()
 
-def get_schedule_data()->dict: #IN USE
+def get_scheduled_index():
+    return db.reference('schedule/next').get()
+
+def get_schedule_data()->dict:
     return db.reference('schedule').get()
 
 def update_next_index(next:int)->None:
@@ -50,15 +41,15 @@ def get_latest_workout_template() -> mapping.WorkoutOptionInfo:
     data: dict = db.reference('workout_templates/')\
         .order_by_key()\
         .limit_to_last(1).get()
-    for key, value in data.items(): #better way to do this considering there is on one?
+    for key, value in data.items():
         return mapping.WorkoutOptionInfo(key, value)
 
-def get_workout_names() -> list[str]: #Where is this used? Change to titles?
+def get_workout_names() -> list[str]: 
     data: dict = db.reference('workout_templates').get() 
     workouts:list[str] = [value['title'] for value in data.values()]
     return workouts
 
-def register_workout_template(data: dict): #make register_new_workout_template
+def register_workout_template(data: dict):
     db.reference('/workout_templates').push(
         {
         'last_completed': 'Never',
@@ -76,7 +67,7 @@ def delete_template(id: str):
 
 ### LIFTS ###
 
-def get_lifts()-> dict[str, bool]: #IN USE
+def get_lifts()-> dict[str, bool]:
     """Returns all stored lifts"""
     return db.reference("/lifts").get()
 
@@ -88,11 +79,15 @@ def register_new_lift(lift):
 ### COMPLETED LIFTS ###
 
 def get_last_completed_lifts(lift:str, limit: int = None)\
-    -> list[mapping.LiftSessionRecord]: #How to type hint hte double return here?
-    #Can this be combined with get_additional_completed_lifts?
-    '''Returns True if there are at least limit +1 completed lifts in the 
-    database else False
-    Also returns limit # of LiftSessionRecord objects.
+    -> Tuple[bool, list[mapping.LiftSessionRecord]]: 
+    '''
+    Args:
+     lift: the lift whose records are needed
+     limit: the number of records to return 
+
+    Returns:
+     more: True if there are additional earlier records for this lift else False
+     sessions: a list of LiftSessionRecord objects
     '''
 
     data: dict = db.reference("/completed_lifts/"+lift)\
@@ -114,12 +109,17 @@ def get_last_completed_lifts(lift:str, limit: int = None)\
     return more, sessions
     
 def get_additional_completed_lifts(lift:str, start: str, limit: int)\
-    -> list[mapping.LiftSessionRecord]: #How to type hint hte double return here?
-    '''Accepts and uses a start parameter (a firebase ID str) to check for 
-    additional lift records prior to those already retrieved.
-    Returns True if there are at least limit +1 additional lift records in the 
-    database else False
-    Also returns limit # of LiftSessionRecord objects.
+    -> Tuple[bool, list[mapping.LiftSessionRecord]]: 
+    '''
+    Checks for additional lift records prior to those already retrieved 
+
+    Args:
+     lift: the lift whose records are needed
+     limit: the number of records to retrieve
+
+    Returns:
+     more: True if there are additional earlier records for this lift else False
+     sessions: a list of LiftSessionRecord objects
     '''
 
     data: dict = db.reference("/completed_lifts/"+lift)\
@@ -139,7 +139,7 @@ def get_additional_completed_lifts(lift:str, start: str, limit: int)\
     
     return more, sessions
 
-def get_lift_session(key: str, lift): #what is this? need better name. In use?
+def get_lift_session(key: str, lift):
     return db.reference(f'completed_lifts/{lift}/{key}/sets').get()
 
 
@@ -169,21 +169,23 @@ def update_data_card(name, key, value):
             key : value
             })
 
-def set_data_card(name, d: dict)->None: #is this used?
+def set_data_card(name, d: dict)->None: 
     db.reference('/data_cards/'+name).set(d)
 
 ### GRAPH DATA ###
 
-#No need to cache here as the plots themselves are cached by the FigureManager.
-#i.e. these database methods are called only when new data is required
+'''
+No need to cache here as the plots themselves are cached by the FigureManager.
+i.e. these database methods are called only when new data is required
+'''
 
-def get_plot_initialization_info() -> Union[tuple, None]: #IN USE
+def get_plot_initialization_info() -> Union[tuple, None]: 
     lifts: dict = get_lifts()
     if lifts:
         lift: str = next(iter(lifts))
         return(lift, '3 Months')
 
-def get_plot_data(lift:str, period: str) -> Union[mapping.PlotData, None]: #Change this to graph data
+def get_plot_data(lift:str, period: str) -> Union[mapping.PlotData, None]: 
     if period == 'All Time':
         data: dict = db.reference("/graph_data/"+lift)\
                     .order_by_key().get()
@@ -196,7 +198,7 @@ def get_plot_data(lift:str, period: str) -> Union[mapping.PlotData, None]: #Chan
         return mapping.PlotData(data, period)
 
 def register_graph_data(key: str, lift: str, weight: int, date_str: str = None)\
-    ->None: #Register_new_graph_data?
+    ->None:
 
     if not date_str:
         date_str = datetime.date.today().isoformat()
@@ -222,7 +224,7 @@ def clear_sessions_cache() -> None:
    workout_sessions_cache = {} 
 
 
-def get_sessions(cache: bool = True): #IN USE
+def get_sessions(cache: bool = True): 
     '''Return all workout sessions from cache if previously cached, 
     else retrive from database and (if cache == True) cache for future'''
 
@@ -248,7 +250,7 @@ def get_session_lifts(key:str)->list[str]:
     '''Return a string of the lifts completed in a given session'''
     return [*db.reference(f"sessions/{key}/lifts").get()]
 
-def register_session(workout)->str: #register_new_session? log_new_session?
+def register_session(workout)->str: 
     '''Returns the key generated from the firebase push for use in logging
     the rest of session info. This is necessary to link all info generated when 
     logging a new session so it can all be found later if needed
@@ -260,13 +262,13 @@ def register_session(workout)->str: #register_new_session? log_new_session?
         })
     return new_post_ref.key
 
-def update_session(key: str, lift: str): #add_lift_to_session
+def update_session(key: str, lift: str): 
     db.reference(f'/sessions/{key}/lifts').update(
         {
         lift : True
         })
 
-def update_session_date_workout(key: str, date: str, workout): #is this being called?
+def update_session_date_workout(key: str, date: str, workout): 
     db.reference(f'/sessions/{key}').update(
         {
         'date' : date,
