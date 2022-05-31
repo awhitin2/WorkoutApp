@@ -48,7 +48,6 @@ class SelectionScreen(MDScreen):
                 ),
                 MDFlatButton(
                     text="CREATE", 
-                    # on_release=self.register_workout_template
                     on_release=self.process_dialog_input
                 ),
             ],
