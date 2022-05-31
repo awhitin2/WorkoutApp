@@ -2,6 +2,22 @@ from typing import Union
 import datetime
 from dateutil import relativedelta
 
+from kivy.uix.widget import Widget
+
+def ancestor_finder(child: Widget, ancestor_type: Widget)-> Widget:
+    """
+    Traverse a widget's parent tree until an ancestor of the given widget 
+    class is found.
+    """
+    parent = child.parent
+    while not isinstance(parent, ancestor_type):
+        try:
+            parent = parent.parent
+            if parent == None:
+                print(f"{child} has no ancestor of type {ancestor_type}")
+        except AttributeError:
+            print(f"{child} has no ancestor of type {ancestor_type}")
+    return parent
 
 
 def parse_date(date: Union[datetime.datetime, str], format:str = 'Mon DD' ) -> str:
@@ -10,7 +26,7 @@ def parse_date(date: Union[datetime.datetime, str], format:str = 'Mon DD' ) -> s
         'YYYY-MM-DD' : '%Y-%m-%d',
         'Mon DD' : '%b %d',
         'Day, Mon DD, YYYY' : '%A, %b %d, %Y'
-}
+    }
     
     if isinstance(date, str):
         if date == 'Never':

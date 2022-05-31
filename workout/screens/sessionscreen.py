@@ -12,13 +12,14 @@ from kivymd.uix.card import MDCard
 from kivymd.uix.dialog import MDDialog
 from kivy.uix.label import Label
 from kivymd.uix.relativelayout import MDRelativeLayout
+from kivy.uix.screenmanager import ScreenManager
 from kivymd.uix.screen import MDScreen
 from kivy.uix.scrollview import ScrollView
 from kivymd.uix.stacklayout import MDStackLayout
 from kivy.uix.stacklayout import StackLayout
 
+from backend import utils
 from backend import mapping 
-
 from backend.schedulemanager import schedule_manager
 import backend.database as db
 
@@ -345,9 +346,7 @@ class InputLayout(StackLayout):
             for field in [row.rep_field, row.weight_field]:
                 field.text = ''
         
-        #This is hideous 
-        #while type is not Screen manager, keep grapping parent
-        session_screen = self.parent.parent.parent.parent.parent.parent
+        session_screen = utils.ancestor_finder(self, ScreenManager)
         
         if not session_screen.session_key:
             session_screen.session_key = db.register_session(session_screen.title)
@@ -361,7 +360,7 @@ class InputLayout(StackLayout):
         db.register_graph_data(session_screen.session_key, self.lift, max)
             
 
-        record_layout = self.parent.parent.record_layout
+        record_layout = utils.ancestor_finder(self, RecordLayout)
         record_layout.stack.clear_widgets()
         record_layout.set_records()
 
