@@ -1,21 +1,10 @@
-
 from __future__ import annotations
 
-from datetime import datetime
-import matplotlib.pyplot as plt
-
-from kivy.properties import ObjectProperty
-from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
 from kivy.clock import Clock
+from kivy.garden.matplotlib.backend_kivyagg import FigureCanvasKivyAgg
+from kivy.properties import ObjectProperty
 from kivymd.uix.chip import MDChip
 from kivymd.uix.screen import MDScreen
-from kivy.clock import Clock
-from kivy.metrics import dp
-from kivy.properties import StringProperty, ObjectProperty, ListProperty
-from kivy.uix.behaviors import ButtonBehavior
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.screen import MDScreen
-from kivy.uix.widget import Widget
 
 import backend.database as db
 from backend import figmanager
@@ -41,7 +30,7 @@ class GraphScreen(MDScreen):
 
     def _add_lift_chips(self):
         
-        for lift in db.get_lifts(): ### Code smellllll
+        for lift in db.get_lifts():
             chip = GraphChip(
                         text = lift, 
                         stack = self.lift_stack,

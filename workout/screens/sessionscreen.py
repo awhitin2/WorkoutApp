@@ -1,11 +1,11 @@
 
-from types import SimpleNamespace
 import functools
+from types import SimpleNamespace
 
-from kivy.lang import Builder
-from kivy.clock import Clock
 from kivymd.app import MDApp
-from kivy.properties import StringProperty, ObjectProperty, NumericProperty, BooleanProperty
+from kivy.clock import Clock
+from kivy.properties import (
+    StringProperty, ObjectProperty, NumericProperty, BooleanProperty)
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDIconButton, MDFlatButton, ButtonBehavior
 from kivymd.uix.card import MDCard
@@ -35,7 +35,7 @@ class SessionScreen(MDScreen):
         self.title = workout_info.title
         self.name: str = self.workout_info.id #For registration with ScreenManager
         self.dialogs: dict[str:MDDialog] = {}
-        self.lift_cards: list = [] #Keep this or iterate through layout.children
+        self.lift_cards: list = []
         self.input_layouts: list = None
         self.session_key: str = None
         Clock.schedule_once(self._post_init)
@@ -193,6 +193,7 @@ class LiftCard(MDCard):
 
 class RecordLayout(ScrollView):
     stack = ObjectProperty()
+    column_width = 197
 
     def __init__(self, lift, sets, **kwargs):
         super().__init__(**kwargs)
@@ -213,9 +214,10 @@ class RecordLayout(ScrollView):
             if len(previous_sessions) == 2: #Explain here
                 self.stack.add_widget(ColumnSpacer())
             if len(previous_sessions) == 1:
-                self.stack.add_widget(NoData(width = 197*2)) #fix this 197
+                self.stack.add_widget(NoData(
+                    width = RecordLayout.column_width*2))
         else: 
-            self.stack.add_widget(NoData(width = 197*3))
+            self.stack.add_widget(NoData(width = RecordLayout.column_width*3))
 
     def load_more_records(self, instance):
         self.stack.remove_widget(instance)

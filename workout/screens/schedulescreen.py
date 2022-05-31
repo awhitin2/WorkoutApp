@@ -1,15 +1,16 @@
 import functools
+
 from kivy.clock import Clock
+from kivy_garden.drag_n_drop import (DraggableLayoutBehavior, 
+                                    DraggableObjectBehavior)
 from kivy.properties import StringProperty, ObjectProperty
-from kivymd.uix.card import MDCardSwipe
-from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.behaviors.toggle_behavior import ToggleButtonBehavior
-from kivymd.uix.button import MDFlatButton
-from kivymd.uix.screen import MDScreen
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.button import MDFlatButton, MDTextButton
+from kivymd.uix.card import MDCardSwipe
 from kivymd.uix.dialog import MDDialog
+from kivymd.uix.screen import MDScreen
 from kivy.uix.widget import Widget
-from kivymd.uix.button import MDTextButton
-from kivy_garden.drag_n_drop import DraggableLayoutBehavior, DraggableObjectBehavior
 
 from backend.schedulemanager import schedule_manager
 import backend.database as db
@@ -70,14 +71,11 @@ class ScheduleScreen(MDScreen):
             )
         self.dialogs[key].open()
 
-
     def save(self, *args):
         success = schedule_manager.save()
         if success:
             self._show_save_dialog()
 
-        
-        
 
 class DragBox(DraggableLayoutBehavior, MDBoxLayout):
 
@@ -89,7 +87,7 @@ class DragBox(DraggableLayoutBehavior, MDBoxLayout):
         schedule_manager.cards = self.children
         Clock.schedule_once(self._post_init)
 
-    def _post_init(self, *args): #Does this have to be post_init?
+    def _post_init(self, *args): 
         if schedule_manager.schedule:
             self.set_cards(schedule_manager.schedule)
             schedule_manager.set_next()
@@ -126,7 +124,7 @@ class ScheduleCard(DraggableObjectBehavior, MDCardSwipe):
         self.parent.remove_widget(self)
 
     def initiate_drag(self):
-        # during a drag, we remove the widget from the original location
+        # during a drag, remove the widget from the original location
         self.parent.remove_widget(self)
 
     def on_touch_down(self, touch):
@@ -167,7 +165,6 @@ class ScheduleDialogRow(MDBoxLayout):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        # self.workout = workout #Do I need this?
     
     def set_icon(self, instance_check):
         instance_check.active = not instance_check.active

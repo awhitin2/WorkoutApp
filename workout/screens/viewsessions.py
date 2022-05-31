@@ -1,22 +1,17 @@
 from __future__ import annotations
 import datetime
-
 import functools
 
 from kivymd.app import MDApp
 from kivy.clock import Clock
-from kivymd.uix.card import MDCardSwipe
-
-from kivy.uix.recycleview.views import RecycleDataViewBehavior
-from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager
-from kivymd.uix.screen import MDScreen
-from kivymd.uix.boxlayout import MDBoxLayout
-from kivymd.uix.button import MDFlatButton
-
-from kivymd.uix.dialog import MDDialog
-from kivymd.uix.picker import MDDatePicker
 from kivy.properties import StringProperty, ObjectProperty, BooleanProperty
+from kivymd.uix.button import MDFlatButton
+from kivymd.uix.card import MDCardSwipe
+from kivymd.uix.dialog import MDDialog
+from kivy.uix.label import Label
+from kivymd.uix.picker import MDDatePicker
+from kivy.uix.recycleview.views import RecycleDataViewBehavior
+from kivymd.uix.screen import MDScreen
 
 import backend.database as db
 from backend import utils
@@ -69,7 +64,7 @@ class ViewSessionsScreen(MDScreen):
         date_str = utils.parse_date(date_obj, 'Day, Mon DD, YYYY')
         manager = app.root.ids.data_sm
         manager.add_widget(
-            EditScreen(  ## This is somehow inexplicably remembering previous deleted sessions andpassing their lift info
+            EditScreen(
                 key, 
                 self.rv,
                 date_str, 
@@ -123,7 +118,7 @@ class SessionCard(RecycleDataViewBehavior, MDCardSwipe):
     date_str = StringProperty()
     date_obj = ObjectProperty()
     key = StringProperty()
-    workout = StringProperty() #Do I need these properties?
+    workout = StringProperty()
     lifts = ObjectProperty()
 
     def __init__(self) -> None:

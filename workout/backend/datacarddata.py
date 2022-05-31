@@ -1,6 +1,5 @@
 import datetime
 import backend.database as db
-##Rename datacardcalculations
 
 
 cards_with_circle = ['sessions_per_week', 'this_week']
@@ -15,7 +14,7 @@ def calculate(data_card):
     return calc_functions[data_card.name](data_card)
 
 
-def this_week(data_card)-> int:
+def _this_week(data_card)-> int:
     """Calculate the number of sessions completed this week"""
 
     iso_cal = datetime.date.today().isocalendar()
@@ -26,7 +25,7 @@ def this_week(data_card)-> int:
     
     return result
 
-def current_sessions(data_card)-> int:
+def _current_sessions(data_card)-> int:
     """Calculate current streak of consecutive sessions where weekly target was reached each consecutive week"""
     sessions = db.get_sessions()
     if sessions:
@@ -55,7 +54,7 @@ def current_sessions(data_card)-> int:
     else: 
         return 0
 
-def current_weeks(data_card)-> int: 
+def _current_weeks(data_card)-> int: 
     """Calculate current streak of consecutive weeks where weekly target was reached each consecutive week"""
     sessions = db.get_sessions()
     if sessions:
@@ -86,7 +85,7 @@ def current_weeks(data_card)-> int:
         return 0
 
 
-def sessions_per_week(data_card)-> int:
+def _sessions_per_week(data_card)-> int:
     '''Calculate the average number of sessions per week since start date'''
     start_date = data_card.start_date_str
     weeks = (datetime.date.today()-datetime.date.fromisoformat(start_date)).days//7
@@ -96,7 +95,7 @@ def sessions_per_week(data_card)-> int:
     return round(num_sessions/weeks)
   
 
-def highest_weeks(data_card)-> int:  #This could maybe be improved?
+def _highest_weeks(data_card)-> int:  #This could maybe be improved?
     '''Calculate the highest number of consecutive weeks wherein weekly target was reached since start date'''
 
     sessions = db.get_sessions_since(data_card.start_date_str)
@@ -126,7 +125,7 @@ def highest_weeks(data_card)-> int:  #This could maybe be improved?
     else: 
         return 0
 
-def highest_sessions(data_card)-> int:  #This could maybe be improved?
+def _highest_sessions(data_card)-> int:  #This could maybe be improved?
     '''Calculate highest number of consecutive sessions where weekly target was reached each consecutive week since start date'''
     
     sessions = db.get_sessions_since(data_card.start_date_str)
@@ -160,14 +159,14 @@ def highest_sessions(data_card)-> int:  #This could maybe be improved?
 
 
 calc_functions = {
-        'this_week' : this_week,
-        'sessions_per_week': sessions_per_week,
+        'this_week' : _this_week,
+        'sessions_per_week': _sessions_per_week,
         'current' : {
-            'Weeks' : current_weeks,
-            'Sessions' : current_sessions
+            'Weeks' : _current_weeks,
+            'Sessions' : _current_sessions
         },
         'longest' : {
-            'Weeks' : highest_weeks,
-            'Sessions' : highest_sessions,
+            'Weeks' : _highest_weeks,
+            'Sessions' : _highest_sessions,
         }
     }

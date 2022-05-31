@@ -1,6 +1,5 @@
 import functools
-from kivymd.app import MDApp
-from kivy.lang import Builder
+
 from kivy.clock import Clock
 from kivy.properties import StringProperty, ObjectProperty
 from kivymd.uix.button import MDFlatButton
@@ -12,7 +11,6 @@ from kivymd.uix.screen import MDScreen
 from screens.sessionscreen import SessionScreen
 from backend import mapping
 from backend.schedulemanager import schedule_manager
-
 import backend.database as db
 
 

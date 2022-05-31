@@ -1,15 +1,12 @@
 from __future__ import annotations
-
 import datetime
-from xmlrpc.client import Boolean
 
 from kivy.clock import Clock
 from kivy.metrics import dp
 from kivy.properties import NumericProperty, StringProperty, ObjectProperty, BooleanProperty, ListProperty
 from kivy.uix.behaviors import ButtonBehavior
-
-from kivymd.uix.card import MDCard
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.card import MDCard
 from kivymd.uix.floatlayout import FloatLayout
 from kivy.uix.label import Label
 from kivymd.uix.menu import MDDropdownMenu
@@ -18,12 +15,9 @@ from kivymd.uix.screen import MDScreen
 from kivy.uix.togglebutton import ToggleButtonBehavior
 from kivy.uix.widget import Widget
 
-
 from backend import colors
 import backend.database as db
 from backend import datacarddata
-from screens import graphscreen
-from screens import viewsessions
 from backend import figmanager
 
 
@@ -96,7 +90,6 @@ class DataCardCalc(DataCard):
             setattr(self, key, value)
 
         if self.has_start:
-
             if not self.start_date_str:
                 self.start_date_str = datetime.date.today().isoformat()
             self.start_date=datetime.datetime.strptime(self.start_date_str,"%Y-%m-%d").date()
@@ -124,7 +117,6 @@ class DataLabel(Label):
 class DataButton(FloatLayout):
     screen = StringProperty()
     pass
-
 
 class EditView(MDBoxLayout):
     """DataCard alternate view showing widgets to edit parameters"""
@@ -154,20 +146,16 @@ class EditView(MDBoxLayout):
         self.add_widget(Unit(base_card = self.base_card))
 
     
-
 class Starting(MDBoxLayout):
     """Allows user to modify DataCard start date"""
 
     start = StringProperty()
     base_card = ObjectProperty()
-    # start_date = ObjectProperty()
-
 
     def __init__(self, base_card, **kwargs):
         super().__init__(**kwargs)
         self.base_card = base_card
         self.start_date = base_card.start_date
-        # self.bind(start_date= self.base_card.setter('start_date'))
         self._set_start_date(self.start_date)
 
     def _set_start_date(self, date):
@@ -218,7 +206,6 @@ class Target(MDBoxLayout):
                     "text": f'{str(i)} sessions per week',
                     "height": dp(56),
                     "on_release": lambda x=i: self._target_update(x)
-                    # "on_release": lambda x=i: self._load_data(str(x))
 
                 } for i in range(1, 8)
             ]
@@ -232,7 +219,7 @@ class Target(MDBoxLayout):
 
     def _target_update(self, target):
         if self.target != target:
-            self.target = target #create update function? or just bind more smoothly
+            self.target = target
             self.base_card.calculate()
             db.update_data_card(self.base_card.name, 'target', self.target)
             self.menu.dismiss()
@@ -262,7 +249,6 @@ class Unit(MDBoxLayout):
                     "text": item,
                     "height": dp(56),
                     "on_release": lambda x=item: self._unit_update(x)
-                    # "on_release": lambda x=i: self._load_data(str(x))
 
                 } for item in ['Sessions', 'Weeks']
             ]
@@ -294,15 +280,12 @@ class RightContainer(Widget):
 class Calculation(ToggleButtonBehavior, RightContainer):
     """Displays calculation result"""
 
-    # calculation = NumericProperty()
-    # target = NumericProperty()
     base_card = ObjectProperty()
     
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.base_card = kwargs['base_card']
-        # self.base_card.bind(calculation = self._set_size)
 
     def on_state(self, widget, value):
         if value == 'down':

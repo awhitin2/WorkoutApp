@@ -1,8 +1,9 @@
-from typing import Union
 import datetime
 from dateutil import relativedelta
+from typing import Union
 
 from kivy.uix.widget import Widget
+
 
 def ancestor_finder(child: Widget, ancestor_type: Widget)-> Widget:
     """
