@@ -1,2 +1,60 @@
 # WorkoutApp
+
 Mobile app to track workouts and log lifts
+
+This project was undertaken for educational purposes only and is not currently in a deployable state. 
+
+Before deploying, I would need to revise the firebase interaction functions contained in database.py, as they currently utilize the Firebase Admin Python SDK, which does not allow controlled access for individual users. Instead, I would have to refactor database.py to use the Firebase Database REST API instead, which would take more effort than I want to put into this project at present. 
+
+
+# Features
+Screenshots coming
+
+## Selection Screen
+
+- Displays any previously creating workouts
+- The next scheduled workout floats to the top of the screen and is outlined in orange
+- Allows for the creation of new workouts
+    - New workout creation dialog has error checking to prevent creating duplicate workouts or incomplete workouts
+- Swipe-to-delete behavior to delete existing workouts
+- Selecting a workout launches the Session Screen
+
+## Session Screen
+
+- Allows user to log weight/reps for each of the lifts in the selected workout
+- Displays a scrolling record of weight/reps for previous sessions going back to the beginning
+- Allows users to add additional lifts to a particular workout session
+- Data error checking/validation when logging lift info with error dialogs
+
+## Data Screen
+
+- Displays a graph visualizing weight trends for logged lifts. When clicked, launches the interactive Graph Screen
+- Displays a number of Data Cards showing:
+    - Number of sessions completed this week
+    - Average number of sessions per week since a given start date
+    - Current sessions streak where weekly target is reached (user can toggle to display result in sessions or number of weeks)
+    - Longest session streak since a given start date (user can toggle to display result in sessions or number of weeks)
+
+## Graph Screen
+
+- Displays an interactive graph allowing the user to visualize their results for any given lift for a number of time periods including the last:
+    - week
+    - month
+    - 3 months
+    - 6 months
+    - year
+    - all time
+
+## View Sessions Screen
+
+- Displays a list of all completed sessions including the title of the workout and date of completion. User can click any session to launch the Edit Sessions Screen
+- User can swipe to delete an individual session, or delete all sessions
+- User can add a session
+
+## Edit Sessions Screen
+
+- Displays the selected session in an editable format where user can:
+    - modify the date
+    - Add/delete lifts
+    - Add/delete/edit any of the rep/weight info
+
