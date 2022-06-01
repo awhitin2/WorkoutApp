@@ -1,10 +1,15 @@
 # WorkoutApp
+A mobile app to track workouts and log lifts.
 
-Mobile app to track workouts and log lifts
+**Languages**: Python, kvlang
+**Persistence layer**: Google Firebase
+**Major Libraries**: Kivy, Kivy Material Design, Matplotlib
 
-This project was undertaken for educational purposes only and is not currently in a deployable state. 
 
-Before deploying, I would need to revise the firebase interaction functions contained in database.py, as they currently utilize the Firebase Admin Python SDK, which does not allow controlled access for individual users. Instead, I would have to refactor database.py to use the Firebase Database REST API instead, which would take more effort than I want to put into this project at present. 
+
+This project was undertaken for educational purposes only and is not currently deployable. 
+
+Before deploying, I would need to revise the Firebase interaction functions contained in database.py, as they currently utilize the Firebase Admin Python SDK, which does not allow controlled access for individual users. Instead, I would have to refactor database.py to use the Firebase Database REST API instead, which would take more effort than I want to put into this project at present. 
 
 
 # Features
