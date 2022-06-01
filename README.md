@@ -8,7 +8,7 @@ A mobile app to track workouts and log lifts.
 
 This project was undertaken for educational purposes only and is not currently deployable. 
 
-Before deploying, I would need to revise the Firebase interaction functions contained in database.py. These functions currently utilize the Firebase Admin Python SDK, which does not allow controlled access for individual users, and would instead need to use the Firebase Database REST API. I may do this eventually but as of now the project has fulfilled it's educational purposes and is no longer a priority. 
+Before deploying, I would need to revise the Firebase interaction functions contained in database.py. These functions currently utilize the Firebase Admin Python SDK, which does not allow controlled access for individual users, and would instead need to use the Firebase Database REST API. I may do this eventually but as of now the project has fulfilled its educational purposes and is no longer a priority. 
 
 
 # Features
