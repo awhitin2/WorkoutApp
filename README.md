@@ -1,11 +1,9 @@
 # WorkoutApp
 A mobile app to track workouts and log lifts.
 
-**Languages**: Python, kvlang
-
-**Persistence layer**: Google Firebase
-
-**Major Libraries**: Kivy, Kivy Material Design, Matplotlib
+- **Languages**: Python, kvlang
+- **Persistence layer**: Google Firebase
+- **Major Libraries**: Kivy, Kivy Material Design, Matplotlib
 
 
 
